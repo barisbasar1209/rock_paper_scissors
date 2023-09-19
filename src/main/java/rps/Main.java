@@ -15,13 +15,10 @@ public class Main{
 				System.out.println(x); 
 				Thread.sleep(1000);
 				System.out.print("\033[H\033[2J");  
-				if (direction==-1) {
-						System.out.printf("%"+x+"s\n","o");
-				}
-				else {
-						System.out.printf("%"+x+"s\n","o");
-				}
+				System.out.flush();
+				System.out.printf("%"+x+"s\n","o");
 				x += direction*1; 
+				System.out.println(x);
 				n--; 
 			}
 	}	
