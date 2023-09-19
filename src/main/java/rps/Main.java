@@ -4,7 +4,7 @@ public class Main{
 	
 	public static void main(String[] args) throws Exception{
 			int direction = -1; 
-			int x = 1; 
+		    int x = 1; 
 			int n = 1000; 
 			String s = ""; 
 			String o = "o"; 
@@ -16,10 +16,24 @@ public class Main{
 				}
 				System.out.print("\033[H\033[2J");  
 				System.out.flush(); 
-				s = String.format("%"+ x + "s", o);
+				s = padString(o, x, 1); 
 				System.out.println(s); 
 				x += direction*1; 
 				n--; 
 			}
+	}
+
+	private static String padString(String s, int pad, int direction){
+			if (direction==1) { // left
+				for (int i = 0; i<pad; i++){
+					s = " " + s; 	
+				}
+			}
+			else { // right
+				for (int i = 0; i<pad; i++){
+					s = s + " "; 	
+				}		
+			}
+			return s; 
 	}
 }
