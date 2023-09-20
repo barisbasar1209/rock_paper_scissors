@@ -1,6 +1,11 @@
 package rps; 
 
 public class Util {
+	public static String insertIcon(String string, int idx, String replacement) {
+		String retString = ""; 
+		retString = string.substring(0, idx) + replacement + string.substring(idx+2);
+		return retString; 
+	}
 	public static String replaceIdx(String string, int idx, char replacement) throws RuntimeException{
 		char[] tmp = string.toCharArray(); 
 		if (idx>=0 && idx<tmp.length){
@@ -18,9 +23,9 @@ public class Util {
 		System.out.flush(); 	
 	}
 
-	public static String padLeft(String string, int padSize){
+	public static String padLeft(String string, int padSize, char symbol){
 		for (int i = 0; i<padSize; i++){
-			string = " " + string; 		
+			string = symbol + string; 		
 		}	
 		return string; 
 	}

@@ -47,12 +47,12 @@ public abstract class Player{
 				this.direction = arr[random.nextInt(5)]; 	
 			}
 			else if (x==0 && y==height){
-				System.out.println("Else if case x==0 && y==height. Values x,y are " + x + " " + y + "."); 
+				// REMOVE THIS System.out.println("Else if case x==0 && y==height. Values x,y are " + x + " " + y + "."); 
 				int[] arr = {1,2,3}; 	
 				this.direction = arr[random.nextInt(3)]; 
 			}
 			else if (x==0 && y>0 && y<height){
-				System.out.println("Else if case x==0 && y==height. Values x,y are " + x + " " + y + "."); 
+				// REMOVE THIS System.out.println("Else if case x==0 && y==height. Values x,y are " + x + " " + y + "."); 
 			   	int[] arr = {1,2,3,4,5}; 	
 				this.direction = arr[random.nextInt(5)];
 			}
