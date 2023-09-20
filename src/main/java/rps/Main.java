@@ -2,14 +2,17 @@ package rps;
 
 public class Main {
 	
-		public static void main (String[] args){
-				Rock rock1 = new Rock(4,5); 
-				Rock rock2 = new Rock(5,2); 
-				System.out.println(rock1.getId()); 
-				System.out.println(rock1.getX()); 
-				System.out.println(rock1.getY()); 
-				System.out.println(rock2.getId()); 
-				System.out.println(rock2.getX()); 
-				System.out.println(rock2.getY()); 
+		public static void main (String[] args) throws Exception{
+				/*
+				Board b = new Board(); 
+				b.createPlayers(); 
+				System.out.println(b.players.size()); 
+				for (int i = 0; i < 10; i++){
+						System.out.println(b.players.get(i).getId());
+				}*/
+				Board b = new Board(); 
+				System.out.println("starting a new game"); 
+				b.runGame(); 
+
 		}
 }
