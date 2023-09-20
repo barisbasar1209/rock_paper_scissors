@@ -44,6 +44,7 @@ public class Board {
 					}
 			}
 	} 
+	// TODO: remove player that has been defeated from board 
 	private static char resolveDuell(char next, char current){
 		if(next == current || current == FILLER) return next; 
 		if(next == 'r' && current == 'p') return 'p'; 
