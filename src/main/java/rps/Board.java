@@ -7,7 +7,7 @@ public class Board {
 
 	private final static int HEIGHT = 20; 
 	private final static int WIDTH = 50; 
-	private final static int PLAYERAMOUNT = 10; 	
+	private final static int PLAYERAMOUNT = 30; 	
 	static Random random = new Random(); 
 	static public ArrayList<Rock> rockList = new ArrayList<>(); 	
 	static public ArrayList<Paper> paperList = new ArrayList<>(); 	
@@ -84,7 +84,7 @@ public class Board {
 			while(!((rockList.size()+paperList.size() == 0) || (rockList.size()+scissorsList.size() == 0) || (paperList.size()+scissorsList.size() == 0))){
 				movePlayers(); 
 				printBoard();
-				Thread.sleep(200); 
+				Thread.sleep(50); 
 				Util.refresh(); 
 			}
 	}

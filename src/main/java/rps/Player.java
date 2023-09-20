@@ -26,7 +26,7 @@ public abstract class Player{
 				int[] arr = {3,4,5}; 
 				this.direction = arr[random.nextInt(3)]; 
 			}
-			else if (x!=0 && x!=width && y==0){
+			else if (x>0 && x<width && y==0){
 				int[] arr = {3,4,5,6,7};
 				this.direction = arr[random.nextInt(5)]; 
 			}
@@ -34,7 +34,7 @@ public abstract class Player{
 				int[] arr = {5,6,7};
 				this.direction = arr[random.nextInt(3)]; 
 			}
-			else if (x==width && y!=height && y!=0){
+			else if (x==width && y<height && y>0){
 				int[] arr = {1,5,6,7,8}; 
 				this.direction = arr[random.nextInt(5)]; 
 			}
@@ -42,15 +42,17 @@ public abstract class Player{
 				int[] arr = {1,7,8}; 	
 				this.direction= arr[random.nextInt(3)]; 
 			}
-			else if (x!=width && y==height){
+			else if (x>0 && x<width && y==height){
 				int[] arr = {1,2,3,7,8}; 	
 				this.direction = arr[random.nextInt(5)]; 	
 			}
 			else if (x==0 && y==height){
+				System.out.println("Else if case x==0 && y==height. Values x,y are " + x + " " + y + "."); 
 				int[] arr = {1,2,3}; 	
 				this.direction = arr[random.nextInt(3)]; 
 			}
-			else if (x==0 && y!=0 && y!=height){
+			else if (x==0 && y>0 && y<height){
+				System.out.println("Else if case x==0 && y==height. Values x,y are " + x + " " + y + "."); 
 			   	int[] arr = {1,2,3,4,5}; 	
 				this.direction = arr[random.nextInt(5)];
 			}
@@ -117,14 +119,16 @@ public abstract class Player{
 				case 7 : 
 					x--; 
 					if (x<0) {
-						System.out.println("Error: x<0! Current direction is " + direction + "."); 	
+						System.out.println("Error: x<0! x-value is " + x + ". y-value is " + y + ". Current direction is " + direction + "."); 	
+						System.out.println("The player is " + icon + id + "."); 
 						System.exit(1); 
 					}
 					break; 
 				case 8 : 
 					x--; 
 					if (x<0) {
-						System.out.println("Error: x<0! Current direction is " + direction + "."); 	
+						System.out.println("Error: x<0! x-value is " + x + ". y-value is " + y + ". Current direction is " + direction + "."); 	
+						System.out.println("The player is " + icon + id + "."); 
 						System.exit(1); 
 					}
 					y--; 
