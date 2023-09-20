@@ -8,9 +8,7 @@ public class Board {
 	private final static int HEIGHT = 20; 
 	private final static int WIDTH = 50; 
 	private final static int PLAYERAMOUNT = 10; 	
-	public int cntPlayers; 
 	static Random random = new Random(); 
-	static char[][] board = new char[HEIGHT][WIDTH]; 
 	static public ArrayList<Rock> rockList = new ArrayList<>(); 	
 	static public ArrayList<Paper> paperList = new ArrayList<>(); 	
 	static public ArrayList<Scissors> scissorsList = new ArrayList<>(); 	
@@ -39,7 +37,8 @@ public class Board {
 	} 
 	private static void printBoard(){
 			String line = ""; 
-			line = Util.padLeft(line, 50); 
+			String paddedLine = Util.padLeft(line, WIDTH); 
+			line = paddedLine; 
 			for(int i=0; i<HEIGHT; i++){
 				for(Rock rock : rockList){
 					if (rock.getY() == i){
@@ -57,6 +56,7 @@ public class Board {
 					}	
 				}
 				System.out.println(line); 
+				line = paddedLine; 
 			}
 			
 	}
@@ -74,12 +74,13 @@ public class Board {
 	public void runGame() throws Exception{
 			createPlayers(); 
 			Util.refresh(); 
-			while(!((rockList.size()+paperList.size() == 0) || (rockList.size()+scissorsList.size() == 0) || (paperList.size()+scissorsList.size() == 0))){
+			/*while(!((rockList.size()+paperList.size() == 0) || (rockList.size()+scissorsList.size() == 0) || (paperList.size()+scissorsList.size() == 0))){
 				movePlayers(); 
 				printBoard();
 				Thread.sleep(750); 
 				Util.refresh(); 
-			}
+			}*/
+			printBoard(); 
 	}
 
 }
