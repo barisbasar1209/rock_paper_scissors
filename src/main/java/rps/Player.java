@@ -59,31 +59,79 @@ public abstract class Player{
 			switch (direction){
 				case 1 : 
 					y--;  
+					if (y<0) {
+						System.out.println("Error: y<0! Current direction is " + direction + "."); 	
+						System.exit(1); 
+					}
 					break; 
 				case 2 : 
 					x++; 
 					y--; 
+					if (y<0) {
+						System.out.println("Error: y<0 ! Current direction is " + direction + "."); 	
+						System.exit(1); 
+					}
+					if (x>49) {
+						System.out.println("Error: x>49! Current direction is " + direction + "."); 	
+						System.exit(1); 
+					}
 					break; 
 				case 3 : 
 					x++; 
+					if (x>49) {
+						System.out.println("Error: x>49! Current direction is " + direction + "."); 	
+						System.exit(1); 
+					}
 					break; 
 				case 4 : 
 					x++; 
 					y++; 
+					if (x>49) {
+						System.out.println("Error: x>49! Current direction is " + direction + "."); 	
+						System.exit(1); 
+					}
+					if (y>19) {
+						System.out.println("Error: y>19! Current direction is " + direction + "."); 	
+						System.exit(1); 
+					}
 					break; 
 				case 5 : 
 					y++; 
+					if (y>19) {
+						System.out.println("Error: y>19! Current direction is " + direction + "."); 	
+						System.exit(1); 
+					}
 					break; 
 				case 6 : 
 					x--; 
+					if (x>49) {
+						System.out.println("Error: x>49! Current direction is " + direction + "."); 	
+						System.exit(1); 
+					}
 					y++; 
+					if (y>19) {
+						System.out.println("Error: y>19! Current direction is " + direction + "."); 	
+						System.exit(1); 
+					}
 					break; 
 				case 7 : 
 					x--; 
+					if (x<0) {
+						System.out.println("Error: x<0! Current direction is " + direction + "."); 	
+						System.exit(1); 
+					}
 					break; 
 				case 8 : 
 					x--; 
+					if (x<0) {
+						System.out.println("Error: x<0! Current direction is " + direction + "."); 	
+						System.exit(1); 
+					}
 					y--; 
+					if (y<0) {
+						System.out.println("Error: y<0! Current direction is " + direction + "."); 	
+						System.exit(1); 
+					}
 					break; 
 			}
 		}	

@@ -14,15 +14,21 @@ public class Board {
 	static public ArrayList<Scissors> scissorsList = new ArrayList<>(); 	
 
 
-	private static void createPlayers(){
+	private static void createPlayers() throws Exception{
 			int rand; 
 			int x; 
 			int y;
 		    int direction; 	
 			for(int i = 0; i<PLAYERAMOUNT; i++){	
 					rand = random.nextInt(3);	
-					x = random.nextInt(50); 
-					y = random.nextInt(20); 	
+					x = random.nextInt(WIDTH); 
+					y = random.nextInt(HEIGHT); 	
+					if (x==WIDTH|| y==HEIGHT) {
+						System.out.println("Random generated x==50 or y==20!!!"); 
+						Thread.sleep(2000); 
+						System.exit(1); 
+					}
+
 					direction = random.nextInt(8) + 1; 
 					if (rand==0){ // rock
 						rockList.add(new Rock(x,y,direction)); 
@@ -61,26 +67,26 @@ public class Board {
 			
 	}
 	private static void movePlayers(){
+		// width and height have do be decremented for the move method to work 
 		for (Rock rock : rockList){
-			rock.move(WIDTH, HEIGHT); 
+			rock.move(WIDTH-1, HEIGHT-1); 
 		}	
 		for (Paper paper : paperList){
-			paper.move(WIDTH, HEIGHT); 	
+			paper.move(WIDTH-1, HEIGHT-1); 	
 		}
 		for (Scissors scissors : scissorsList){
-			scissors.move(WIDTH, HEIGHT); 	
+			scissors.move(WIDTH-1, HEIGHT-1); 	
 		}
 	}	
 	public void runGame() throws Exception{
 			createPlayers(); 
 			Util.refresh(); 
-			/*while(!((rockList.size()+paperList.size() == 0) || (rockList.size()+scissorsList.size() == 0) || (paperList.size()+scissorsList.size() == 0))){
+			while(!((rockList.size()+paperList.size() == 0) || (rockList.size()+scissorsList.size() == 0) || (paperList.size()+scissorsList.size() == 0))){
 				movePlayers(); 
 				printBoard();
-				Thread.sleep(750); 
+				Thread.sleep(200); 
 				Util.refresh(); 
-			}*/
-			printBoard(); 
+			}
 	}
 
 }

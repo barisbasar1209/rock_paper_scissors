@@ -13,6 +13,5 @@ public class Main {
 				Board b = new Board(); 
 				System.out.println("starting a new game"); 
 				b.runGame(); 
-
 		}
 }
