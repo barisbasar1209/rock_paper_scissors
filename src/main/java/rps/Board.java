@@ -53,22 +53,58 @@ public class Board {
 			for (Rock rock : rockList){
 				if (rock.getY() == y){
 					x = rock.getX(); 
-					BOARD[y][x] = rock; 
+					// if there is already a player on that spot they have to duell else just set player on that spot
+					if (BOARD[y][x] instanceof Player){
+						Player player = BOARD[y][x]; 
+						resolveDuell(player, rock); 
+					}
+					else {
+						BOARD[y][x] = rock; 
+					}
 				}	
 			}
 			for (Paper paper : paperList){
 				if (paper.getY() == y){
 					x = paper.getX(); 
-					BOARD[y][x] = paper; 	
+					if (BOARD[y][x] instanceof Player){
+						Player player = BOARD[y][x]; 
+						resolveDuell(player, paper); 
+					}
+					else {
+						BOARD[y][x] = paper; 
+					}
 				}	
 			}
 			for (Scissors scissors : scissorsList){
 				if (scissors.getY() == y){
 					x = scissors.getX(); 
-					BOARD[y][x] = scissors; 	
+					if (BOARD[y][x] instanceof Player){
+						Player player = BOARD[y][x]; 
+						resolveDuell(player, scissors); 
+					}
+					else {
+						BOARD[y][x] = scissors; 
+					}
 				}	
 			}
 		}
+	}
+	private static void resolveDuell(Player p1, Player p2){
+			char icon1 = p1.getIcon(); 
+			char icon2 = p2.getIcon(); 
+
+			if (icon1 == 'r'){
+				if (icon2 == 'p') p1.setIcon(icon2); 	
+				else if (icon2 == 's') p2.setIcon(icon1); 
+			}
+			else if (icon1 == 'p'){
+				if (icon2 == 'r') p2.setIcon(icon1); 
+				else if (icon2 == 's') p1.setIcon(icon2); 	
+			}
+			else if (icon1 == 's'){
+				if (icon2 == 'r') p1.setIcon(icon2); 	
+				else if (icon2 == 'p') p2.setIcon(icon1); 
+			}
 	}
 	private static void printBoard(){
 			String line = ""; 

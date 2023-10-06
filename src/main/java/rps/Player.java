@@ -139,6 +139,9 @@ public abstract class Player{
 					break; 
 			}
 		}	
+		public void setIcon(char setIcon){
+				icon = setIcon; 	
+		}
 		public char getIcon(){
 			return icon; 
 		}
