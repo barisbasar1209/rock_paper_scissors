@@ -4,10 +4,11 @@ import java.util.Random;
 
 public class Board {
 	
-	final static String reset = "\u001B[0m"; 	
-	final static String red = "\u001B[31m"; 
-	final static String green = "\u001B[32m"; 
-	final static String yellow = "\u001B[33m";
+	final static String RESET = "\u001B[0m"; 	
+	final static String WHITE = "\u001B[97m"; 
+	final static String RED = "\u001B[91m"; 
+	final static String GREEN = "\u001B[92m"; 
+	final static String YELLOW = "\u001B[93m";
 	private final static char FILLER = '.'; 
 	private final static int HEIGHT = 20; 
 	private final static int WIDTH = 50; 
@@ -119,9 +120,34 @@ public class Board {
 								line = Util.replaceIdx(line, player.getX(), icon); 	
 						}		
 				}	
+				line = colorizeLine(line); 
 				System.out.println(line); 
 				line = paddedLine; 
 			}
+	}
+	private static String colorizeLine(String line){
+			StringBuilder colorizedLine = new StringBuilder(); 
+			
+			for (char character : line.toCharArray()) {
+				switch(character){
+					case FILLER: 
+						colorizedLine.append(WHITE); 
+						break; 
+					case 'r': 
+						colorizedLine.append(RED); 
+						break; 
+					case 'p': 
+						colorizedLine.append(GREEN);
+						break; 
+					case 's': 
+						colorizedLine.append(YELLOW); 
+						break; 
+					default: 
+						colorizedLine.append(character); 
+				}	
+				colorizedLine.append(character).append(RESET); 
+			}
+			return colorizedLine.toString(); 
 	}
 	private static void movePlayers(){
 		// width and height have to be decremented for the move method to work 
