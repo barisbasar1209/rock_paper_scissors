@@ -16,6 +16,8 @@ public class Board {
 	static public ArrayList<Rock> rockList = new ArrayList<>(); 	
 	static public ArrayList<Paper> paperList = new ArrayList<>(); 	
 	static public ArrayList<Scissors> scissorsList = new ArrayList<>(); 	
+	static private Player[][] BOARD;  
+
 	private static void createPlayers() throws Exception{
 			int rand; 
 			int x; 
@@ -25,7 +27,7 @@ public class Board {
 					rand = random.nextInt(3);	
 					x = random.nextInt(WIDTH); 
 					y = random.nextInt(HEIGHT); 	
-					if (x==WIDTH|| y==HEIGHT) {
+					if (x==WIDTH || y==HEIGHT) {
 						System.out.println("Random generated x==50 or y==20!!!"); 
 						Thread.sleep(2000); 
 						System.exit(1); 
@@ -44,32 +46,49 @@ public class Board {
 			}
 	} 
 	private static void renderBoard(){
-		Player[][] board = new Player[HEIGHT][WIDTH]; 	
+		BOARD = new Player[HEIGHT][WIDTH]; 	
 		int x; 
 		// rendering the board row by row while also resolving occuring duells
 		for (int y = 0; y<HEIGHT; y++){
 			for (Rock rock : rockList){
 				if (rock.getY() == y){
 					x = rock.getX(); 
-					board[y][x] = rock; 
+					BOARD[y][x] = rock; 
 				}	
 			}
 			for (Paper paper : paperList){
 				if (paper.getY() == y){
 					x = paper.getX(); 
-					board[y][x] = paper; 	
+					BOARD[y][x] = paper; 	
 				}	
 			}
 			for (Scissors scissors : scissorsList){
 				if (scissors.getY() == y){
 					x = scissors.getX(); 
-					board[y][x] = scissors; 	
+					BOARD[y][x] = scissors; 	
 				}	
 			}
 		}
 	}
+	private static void printBoard(){
+			String line = ""; 
+			String paddedLine = Util.padLeft(line, WIDTH, FILLER);
+			line = paddedLine; 
+			char next; 
+			for (int y = 0; y < HEIGHT; y++){
+				for (int x = 0; x < WIDTH; x++){
+						if (BOARD[y][x] instanceof Player) {
+								Player player = BOARD[y][x];  
+								char icon = player.getIcon(); 
+								line = Util.replaceIdx(line, player.getX(), icon); 	
+						}		
+				}	
+				System.out.println(line); 
+				line = paddedLine; 
+			}
+	}
 	private static void movePlayers(){
-		// width and height have do be decremented for the move method to work 
+		// width and height have to be decremented for the move method to work 
 		for (Rock rock : rockList){
 			rock.move(WIDTH-1, HEIGHT-1); 
 		}	
@@ -86,6 +105,7 @@ public class Board {
 			
 			while(!((rockList.size()+paperList.size() == 0) || (rockList.size()+scissorsList.size() == 0) || (paperList.size()+scissorsList.size() == 0))){
 				movePlayers(); 
+				renderBoard(); 
 				printBoard();
 				Thread.sleep(150); 
 				Util.refresh(); 
