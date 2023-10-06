@@ -12,7 +12,7 @@ public class Board {
 	private final static char FILLER = '.'; 
 	private final static int HEIGHT = 20; 
 	private final static int WIDTH = 50; 
-	private final static int PLAYERAMOUNT = 10; 	
+	private final static int PLAYERAMOUNT = 30; 	
 	static Random random = new Random(); 
 	static public ArrayList<Rock> rockList = new ArrayList<>(); 	
 	static public ArrayList<Paper> paperList = new ArrayList<>(); 	
@@ -112,6 +112,8 @@ public class Board {
 			String paddedLine = Util.padLeft(line, WIDTH, FILLER);
 			line = paddedLine; 
 			char next; 
+
+			System.out.println("\n\n\n\n\n"); 
 			for (int y = 0; y < HEIGHT; y++){
 				for (int x = 0; x < WIDTH; x++){
 						if (BOARD[y][x] instanceof Player) {
@@ -121,6 +123,7 @@ public class Board {
 						}		
 				}	
 				line = colorizeLine(line); 
+				line = Util.padLeft(line, 50, ' '); 
 				System.out.println(line); 
 				line = paddedLine; 
 			}
@@ -169,7 +172,7 @@ public class Board {
 				movePlayers(); 
 				renderBoard(); 
 				printBoard();
-				Thread.sleep(150); 
+				Thread.sleep(200); 
 				Util.refresh(); 
 			}
 	}
