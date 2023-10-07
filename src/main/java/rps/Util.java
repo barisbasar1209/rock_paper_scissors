@@ -1,6 +1,13 @@
 package rps; 
 
 public class Util {
+	
+	final static String RESET = "\u001B[0m"; 	
+	final static String WHITE = "\u001B[97m"; 
+	final static String RED = "\u001B[91m"; 
+	final static String GREEN = "\u001B[92m"; 
+	final static String YELLOW = "\u001B[93m";
+
 	public static String insertIcon(String string, int idx, String replacement) {
 		String retString = ""; 
 		retString = string.substring(0, idx) + replacement + string.substring(idx+2);
