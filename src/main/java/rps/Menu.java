@@ -2,7 +2,16 @@ package rps;
 import java.util.Scanner; 
 
 public class Menu {
+	
+	// writing the characters as arrays of strings were each entry is one line. Then constructing each character. Whenever I want to 
+	// append two characters I just append their respective lines
+			
 	public static void main (String[] args) {
+			for (int i = 0; i<8; i++){
+				System.out.println(Util.R[i]+Util.O[i]+Util.C[i]+Util.K[i]+"   "+Util.P[i]+Util.A[i]+Util.P[i]+Util.E[i]+Util.R[i]); 
+			}
+	}
+	public static void toggleLeftRigth(){	
 		Scanner scanner = new Scanner(System.in); 
 		boolean isRed = true; 	
 		while(true){

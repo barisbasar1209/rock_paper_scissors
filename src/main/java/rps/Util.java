@@ -7,6 +7,16 @@ public class Util {
 	final static String RED = "\u001B[91m"; 
 	final static String GREEN = "\u001B[92m"; 
 	final static String YELLOW = "\u001B[93m";
+	
+	final static String[] R = {"#######   ","#      #  ","#      #  ","#      #  ","#######   ","#    #    ","#     #   ","#      #  "}; 
+	final static String[] O = {" #####    ","#     #   ","#     #   ","#     #   ","#     #   ","#     #   ","#     #   "," #####    "}; 
+	final static String[] C = {" ######   ","#     #   ","#     #   ","#         ","#         ","#     #   ","#     #   "," ######   "};
+	final static String[] K = {"#     #   ","#    #    ","#   #     ","#  #      ","# ###     ","#    #    ","#     #   ","#     #   "};
+	final static String[] P = {"#######   ","#      #  ","#      #  ","#      #  ","#######   ","#         ","#         ","#         "};
+	final static String[] A = {" #####    ","#     #   ","#     #   ","#     #   ","#######   ","#     #   ","#     #   ","#     #   "};
+	final static String[] E = {"#######   ","#         ","#         ","#         ","#######   ","#         ","#         ","#######   "};
+	final static String[] S = {"          ","          ","          ","          ","          ","          ","          ","          "};
+	final static String[] I = {"          ","          ","          ","          ","          ","          ","          ","          "};
 
 	public static String insertIcon(String string, int idx, String replacement) {
 		String retString = ""; 
