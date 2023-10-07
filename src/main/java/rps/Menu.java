@@ -8,7 +8,10 @@ public class Menu {
 			
 	public static void main (String[] args) {
 			for (int i = 0; i<8; i++){
-				System.out.println(Util.R[i]+Util.O[i]+Util.C[i]+Util.K[i]+"   "+Util.P[i]+Util.A[i]+Util.P[i]+Util.E[i]+Util.R[i]); 
+				System.out.println("   "+
+								Util.R[i]+Util.O[i]+Util.C[i]+Util.K[i]+"      "+
+								Util.P[i]+Util.A[i]+Util.P[i]+Util.E[i]+Util.R[i]+"      "+
+								Util.S[i]+Util.C[i]+Util.I[i]+Util.S[i]+Util.S[i]+Util.O[i]+Util.R[i]+Util.S[i]); 
 			}
 	}
 	public static void toggleLeftRigth(){	

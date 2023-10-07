@@ -15,8 +15,8 @@ public class Util {
 	final static String[] P = {"#######   ","#      #  ","#      #  ","#      #  ","#######   ","#         ","#         ","#         "};
 	final static String[] A = {" #####    ","#     #   ","#     #   ","#     #   ","#######   ","#     #   ","#     #   ","#     #   "};
 	final static String[] E = {"#######   ","#         ","#         ","#         ","#######   ","#         ","#         ","#######   "};
-	final static String[] S = {"          ","          ","          ","          ","          ","          ","          ","          "};
-	final static String[] I = {"          ","          ","          ","          ","          ","          ","          ","          "};
+	final static String[] S = {" #####    ","#         ","#         "," #####    ","      #   ","      #   ","      #   ","######    "};
+	final static String[] I = {"#######   ","   #      ","   #      ","   #      ","   #      ","   #      ","   #      ","#######   "};
 
 	public static String insertIcon(String string, int idx, String replacement) {
 		String retString = ""; 
