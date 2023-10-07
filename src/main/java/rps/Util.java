@@ -18,6 +18,37 @@ public class Util {
 	final static String[] S = {" #####    ","#         ","#         "," #####    ","      #   ","      #   ","      #   ","######    "};
 	final static String[] I = {"#######   ","   #      ","   #      ","   #      ","   #      ","   #      ","   #      ","#######   "};
 
+	final static String[] redR = {RED+"#######   "+RESET,RED+"#      #  "+RESET,RED+"#      #  "+RESET,RED+"#      #  "+RESET,RED+"#######   "+RESET,RED+"#    #    "+RESET,RED+"#     #   "+RESET,RED+"#      #  "+RESET}; 
+	final static String[] redO = {RED+" #####    "+RESET,RED+"#     #   "+RESET,RED+"#     #   "+RESET,RED+"#     #   "+RESET,RED+"#     #   "+RESET,RED+"#     #   "+RESET,RED+"#     #   "+RESET,RED+" #####    "+RESET}; 
+	final static String[] redC = {RED+" ######   "+RESET,RED+"#     #   "+RESET,RED+"#     #   "+RESET,RED+"#         "+RESET,RED+"#         "+RESET,RED+"#     #   "+RESET,RED+"#     #   "+RESET,RED+" ######   "+RESET};
+	final static String[] redK = {RED+"#     #   "+RESET,RED+"#    #    "+RESET,RED+"#   #     "+RESET,RED+"#  #      "+RESET,RED+"# ###     "+RESET,RED+"#    #    "+RESET,RED+"#     #   "+RESET,RED+"#     #   "+RESET};
+	final static String[] redP = {RED+"#######   "+RESET,RED+"#      #  "+RESET,RED+"#      #  "+RESET,RED+"#      #  "+RESET,RED+"#######   "+RESET,RED+"#         "+RESET,RED+"#         "+RESET,RED+"#         "+RESET};
+	final static String[] redA = {RED+" #####    "+RESET,RED+"#     #   "+RESET,RED+"#     #   "+RESET,RED+"#     #   "+RESET,RED+"#######   "+RESET,RED+"#     #   "+RESET,RED+"#     #   "+RESET,RED+"#     #   "+RESET};
+	final static String[] redE = {RED+"#######   "+RESET,RED+"#         "+RESET,RED+"#         "+RESET,RED+"#         "+RESET,RED+"#######   "+RESET,RED+"#         "+RESET,RED+"#         "+RESET,RED+"#######   "+RESET};
+	final static String[] redS = {RED+" #####    "+RESET,RED+"#         "+RESET,RED+"#         "+RESET,RED+" #####    "+RESET,RED+"      #   "+RESET,RED+"      #   "+RESET,RED+"      #   "+RESET,RED+"######    "+RESET};
+	final static String[] redI = {RED+"#######   "+RESET,RED+"   #      "+RESET,RED+"   #      "+RESET,RED+"   #      "+RESET,RED+"   #      "+RESET,RED+"   #      "+RESET,RED+"   #      "+RESET,RED+"#######   "+RESET};
+
+final static String[] yellowR = {YELLOW+"#######   "+RESET,YELLOW+"#      #  "+RESET,YELLOW+"#      #  "+RESET,YELLOW+"#      #  "+RESET,YELLOW+"#######   "+RESET,YELLOW+"#    #    "+RESET,YELLOW+"#     #   "+RESET,YELLOW+"#      #  "+RESET}; 
+	final static String[] yellowO = {YELLOW+" #####    "+RESET,YELLOW+"#     #   "+RESET,YELLOW+"#     #   "+RESET,YELLOW+"#     #   "+RESET,YELLOW+"#     #   "+RESET,YELLOW+"#     #   "+RESET,YELLOW+"#     #   "+RESET,YELLOW+" #####    "+RESET}; 
+	final static String[] yellowC = {YELLOW+" ######   "+RESET,YELLOW+"#     #   "+RESET,YELLOW+"#     #   "+RESET,YELLOW+"#         "+RESET,YELLOW+"#         "+RESET,YELLOW+"#     #   "+RESET,YELLOW+"#     #   "+RESET,YELLOW+" ######   "+RESET};
+	final static String[] yellowK = {YELLOW+"#     #   "+RESET,YELLOW+"#    #    "+RESET,YELLOW+"#   #     "+RESET,YELLOW+"#  #      "+RESET,YELLOW+"# ###     "+RESET,YELLOW+"#    #    "+RESET,YELLOW+"#     #   "+RESET,YELLOW+"#     #   "+RESET};
+	final static String[] yellowP = {YELLOW+"#######   "+RESET,YELLOW+"#      #  "+RESET,YELLOW+"#      #  "+RESET,YELLOW+"#      #  "+RESET,YELLOW+"#######   "+RESET,YELLOW+"#         "+RESET,YELLOW+"#         "+RESET,YELLOW+"#         "+RESET};
+	final static String[] yellowA = {YELLOW+" #####    "+RESET,YELLOW+"#     #   "+RESET,YELLOW+"#     #   "+RESET,YELLOW+"#     #   "+RESET,YELLOW+"#######   "+RESET,YELLOW+"#     #   "+RESET,YELLOW+"#     #   "+RESET,YELLOW+"#     #   "+RESET};
+	final static String[] yellowE = {YELLOW+"#######   "+RESET,YELLOW+"#         "+RESET,YELLOW+"#         "+RESET,YELLOW+"#         "+RESET,YELLOW+"#######   "+RESET,YELLOW+"#         "+RESET,YELLOW+"#         "+RESET,YELLOW+"#######   "+RESET};
+	final static String[] yellowS = {YELLOW+" #####    "+RESET,YELLOW+"#         "+RESET,YELLOW+"#         "+RESET,YELLOW+" #####    "+RESET,YELLOW+"      #   "+RESET,YELLOW+"      #   "+RESET,YELLOW+"      #   "+RESET,YELLOW+"######    "+RESET};
+	final static String[] yellowI = {YELLOW+"#######   "+RESET,YELLOW+"   #      "+RESET,YELLOW+"   #      "+RESET,YELLOW+"   #      "+RESET,YELLOW+"   #      "+RESET,YELLOW+"   #      "+RESET,YELLOW+"   #      "+RESET,YELLOW+"#######   "+RESET};
+
+	final static String[] greenR = {GREEN+"#######   "+RESET,GREEN+"#      #  "+RESET,GREEN+"#      #  "+RESET,GREEN+"#      #  "+RESET,GREEN+"#######   "+RESET,GREEN+"#    #    "+RESET,GREEN+"#     #   "+RESET,GREEN+"#      #  "+RESET}; 
+	final static String[] greenO = {GREEN+" #####    "+RESET,GREEN+"#     #   "+RESET,GREEN+"#     #   "+RESET,GREEN+"#     #   "+RESET,GREEN+"#     #   "+RESET,GREEN+"#     #   "+RESET,GREEN+"#     #   "+RESET,GREEN+" #####    "+RESET}; 
+	final static String[] greenC = {GREEN+" ######   "+RESET,GREEN+"#     #   "+RESET,GREEN+"#     #   "+RESET,GREEN+"#         "+RESET,GREEN+"#         "+RESET,GREEN+"#     #   "+RESET,GREEN+"#     #   "+RESET,GREEN+" ######   "+RESET};
+	final static String[] greenK = {GREEN+"#     #   "+RESET,GREEN+"#    #    "+RESET,GREEN+"#   #     "+RESET,GREEN+"#  #      "+RESET,GREEN+"# ###     "+RESET,GREEN+"#    #    "+RESET,GREEN+"#     #   "+RESET,GREEN+"#     #   "+RESET};
+	final static String[] greenP = {GREEN+"#######   "+RESET,GREEN+"#      #  "+RESET,GREEN+"#      #  "+RESET,GREEN+"#      #  "+RESET,GREEN+"#######   "+RESET,GREEN+"#         "+RESET,GREEN+"#         "+RESET,GREEN+"#         "+RESET};
+	final static String[] greenA = {GREEN+" #####    "+RESET,GREEN+"#     #   "+RESET,GREEN+"#     #   "+RESET,GREEN+"#     #   "+RESET,GREEN+"#######   "+RESET,GREEN+"#     #   "+RESET,GREEN+"#     #   "+RESET,GREEN+"#     #   "+RESET};
+	final static String[] greenE = {GREEN+"#######   "+RESET,GREEN+"#         "+RESET,GREEN+"#         "+RESET,GREEN+"#         "+RESET,GREEN+"#######   "+RESET,GREEN+"#         "+RESET,GREEN+"#         "+RESET,GREEN+"#######   "+RESET};
+	final static String[] greenS = {GREEN+" #####    "+RESET,GREEN+"#         "+RESET,GREEN+"#         "+RESET,GREEN+" #####    "+RESET,GREEN+"      #   "+RESET,GREEN+"      #   "+RESET,GREEN+"      #   "+RESET,GREEN+"######    "+RESET};
+	final static String[] greenI = {GREEN+"#######   "+RESET,GREEN+"   #      "+RESET,GREEN+"   #      "+RESET,GREEN+"   #      "+RESET,GREEN+"   #      "+RESET,GREEN+"   #      "+RESET,GREEN+"   #      "+RESET,GREEN+"#######   "+RESET};
+
+	
 	public static String insertIcon(String string, int idx, String replacement) {
 		String retString = ""; 
 		retString = string.substring(0, idx) + replacement + string.substring(idx+2);

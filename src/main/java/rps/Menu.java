@@ -7,12 +7,12 @@ public class Menu {
 	// append two characters I just append their respective lines
 			
 	public static void main (String[] args) {
-			for (int i = 0; i<8; i++){
-				System.out.println("   "+
-								Util.R[i]+Util.O[i]+Util.C[i]+Util.K[i]+"      "+
-								Util.P[i]+Util.A[i]+Util.P[i]+Util.E[i]+Util.R[i]+"      "+
-								Util.S[i]+Util.C[i]+Util.I[i]+Util.S[i]+Util.S[i]+Util.O[i]+Util.R[i]+Util.S[i]); 
-			}
+		for (int i = 0; i<8; i++){
+			System.out.println("   "+
+				Util.yellowR[i]+Util.O[i]+Util.C[i]+Util.K[i]+"      "+ // ROCK
+				Util.redP[i]+Util.A[i]+Util.P[i]+Util.E[i]+Util.R[i]+"      "+ // PAPER
+				Util.greenS[i]+Util.C[i]+Util.I[i]+Util.S[i]+Util.S[i]+Util.O[i]+Util.R[i]+Util.S[i]); // SCISSORS
+		}
 	}
 	public static void toggleLeftRigth(){	
 		Scanner scanner = new Scanner(System.in); 
