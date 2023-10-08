@@ -1,6 +1,5 @@
 package rps; 
 import java.util.ArrayList; 
-import java.util.Random; 
 
 public class Board {
 	
@@ -8,7 +7,6 @@ public class Board {
 	private final static int HEIGHT = 20; 
 	private final static int WIDTH = 50; 
 	private final static int PLAYERAMOUNT = 30; 	
-	static Random random = new Random(); 
 	static public ArrayList<Rock> rockList = new ArrayList<>(); 	
 	static public ArrayList<Paper> paperList = new ArrayList<>(); 	
 	static public ArrayList<Scissors> scissorsList = new ArrayList<>(); 	
@@ -20,16 +18,16 @@ public class Board {
 			int y;
 		    int direction; 	
 			for(int i = 0; i<PLAYERAMOUNT; i++){	
-					rand = random.nextInt(3);	
-					x = random.nextInt(WIDTH); 
-					y = random.nextInt(HEIGHT); 	
+					rand = Util.random.nextInt(3);	
+					x = Util.random.nextInt(WIDTH); 
+					y = Util.random.nextInt(HEIGHT); 	
 					if (x==WIDTH || y==HEIGHT) {
 						System.out.println("Random generated x==50 or y==20!!!"); 
 						Thread.sleep(2000); 
 						System.exit(1); 
 					}
 
-					direction = random.nextInt(8) + 1; 
+					direction = Util.random.nextInt(8) + 1; 
 					if (rand==0){ // rock
 						rockList.add(new Rock(x,y,direction)); 
 					} 
@@ -132,13 +130,13 @@ public class Board {
 						colorizedLine.append(Util.WHITE); 
 						break; 
 					case 'r': 
-						colorizedLine.append(Util.RED); 
+						colorizedLine.append(Util.YELLOW); 
 						break; 
 					case 'p': 
 						colorizedLine.append(Util.GREEN);
 						break; 
 					case 's': 
-						colorizedLine.append(Util.YELLOW); 
+						colorizedLine.append(Util.RED); 
 						break; 
 					default: 
 						colorizedLine.append(character); 
