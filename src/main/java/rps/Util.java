@@ -9,7 +9,16 @@ public class Util {
 	final static String RED = "\u001B[91m"; 
 	final static String GREEN = "\u001B[92m"; 
 	final static String YELLOW = "\u001B[93m";
-	
+	final static String BOLT = "\u001B[0m";
+
+
+	final static String[] smallH = {"#   #   ","#   #   ","#####   ","#   #   ","#   #   "};
+	final static String[] smallT = {"#####   ","  #     ","  #     ","  #     ","  #     "};
+	final static String[] smallN = {"#   #   ","##  #   ","# # #   ","#  ##   ","#   #   "};
+	final static String[] smallF = {"#####   ","#       ","###     ","#       ","#       "};
+	final static String[] smallG = {" ####   ","#       ","# ###   ","#   #   "," ####   "};
+	final static String[] smallX = {"#   #   "," # #    ","  #     "," # #    ","#   #   "};
+
 	final static String[] whiteR = {"#######   ","#      #  ","#      #  ","#      #  ","#######   ","#    #    ","#     #   ","#      #  "}; 
 	final static String[] whiteO = {" #####    ","#     #   ","#     #   ","#     #   ","#     #   ","#     #   ","#     #   "," #####    "}; 
 	final static String[] whiteC = {" ######   ","#     #   ","#     #   ","#         ","#         ","#     #   ","#     #   "," ######   "};

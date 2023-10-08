@@ -7,7 +7,11 @@ public class Menu {
 	// append two characters I just append their respective lines
 	
 	public static void main (String[] args) throws Exception{
-			animateBanner(); 
+			// animateBanner(); 
+			//System.out.println(Util.BOLT+"TEST"+Util.RESET); 
+			for (int i = 0; i<5; i++){
+				System.out.println(Util.smallN[i]+Util.smallT[i]+Util.smallH[i]+Util.smallF[i]+Util.smallG[i]+Util.smallX[i]); 	
+			}
 	}
 
 	private static void animateBanner() throws InterruptedException{
