@@ -20,7 +20,7 @@ public class Util {
 	final static String[] smallWhiteF = {"#####   ","#       ","###     ","#       ","#       "};
 	final static String[] smallWhiteG = {" ####   ","#       ","# ###   ","#   #   "," ####   "};
 	final static String[] smallWhiteX = {"#   #   "," # #    ","  #     "," # #    ","#   #   "};
-	final static String[] smallWhiteC = {" ####   ","#   #   ","#       ","#   #   "," ####   "}; 
+	final static String[] smallWhiteC = {" ###    ","#   #   ","#       ","#   #   "," ###    "}; 
 	final static String[] smallWhiteE = {"#####   ","#       ","#####   ","#       ","#####   "}; 
 	final static String[] smallWhiteI = {"#####   ","  #     ","  #     ","  #     ","#####   "}; 
 	final static String[] smallWhiteO = {" ###    ","#   #   ","#   #   ","#   #   "," ###    "}; 
@@ -32,7 +32,7 @@ public class Util {
 	final static String[] smallBlueF = {BLUE+"#####   "+RESET,BLUE+"#       "+RESET,BLUE+"###     "+RESET,BLUE+"#       "+RESET,BLUE+"#       "+RESET};
 	final static String[] smallBlueG = {BLUE+" ####   "+RESET,BLUE+"#       "+RESET,BLUE+"# ###   "+RESET,BLUE+"#   #   "+RESET,BLUE+" ####   "+RESET};
 	final static String[] smallBlueX = {BLUE+"#   #   "+RESET,BLUE+" # #    "+RESET,BLUE+"  #     "+RESET,BLUE+" # #    "+RESET,BLUE+"#   #   "+RESET};
-	final static String[] smallBlueC = {BLUE+" ####   "+RESET,BLUE+"#   #   "+RESET,BLUE+"#       "+RESET,BLUE+"#   #   "+RESET,BLUE+" ####   "+RESET}; 
+	final static String[] smallBlueC = {BLUE+" ###    "+RESET,BLUE+"#   #   "+RESET,BLUE+"#       "+RESET,BLUE+"#   #   "+RESET,BLUE+" ###    "+RESET}; 
 	final static String[] smallBlueE = {BLUE+"#####   "+RESET,BLUE+"#       "+RESET,BLUE+"#####   "+RESET,BLUE+"#       "+RESET,BLUE+"#####   "+RESET}; 
 	final static String[] smallBlueI = {BLUE+"#####   "+RESET,BLUE+"  #     "+RESET,BLUE+"  #     "+RESET,BLUE+"  #     "+RESET,BLUE+"#####   "+RESET}; 
 	final static String[] smallBlueO = {BLUE+" ###    "+RESET,BLUE+"#   #   "+RESET,BLUE+"#   #   "+RESET,BLUE+"#   #   "+RESET,BLUE+" ###    "+RESET}; 

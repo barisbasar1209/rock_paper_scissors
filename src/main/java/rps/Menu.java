@@ -3,6 +3,10 @@ import java.util.Scanner;
 
 public class Menu {
 	
+	final static int SHOOT = 0; 
+	final static int CONFIG = 1; 
+	final static int EXIT = 2; 
+
 	// writing the characters as arrays of strings were each entry is one line. Then constructing each character. Whenever I want to 
 	// append two characters I just append their respective lines
 	final static String whiteShoot  = generateWhiteShoot(); 	
@@ -13,10 +17,39 @@ public class Menu {
 	final static String blueExit    = generateBlueExit(); 
 
 	public static void main (String[] args) throws Exception{
-			// animateBanner(); 
-			for (int i = 0; i<5; i++){
-				System.out.println(Util.smallWhiteS[i]+Util.smallWhiteE[i]+Util.smallBlueC[i]+Util.smallBlueI[i]+Util.smallBlueG[i]+Util.smallBlueX[i]); 	
+		
+		int selection = SHOOT; 	
+		String banner = ""; 
+		String input = ""; 
+		Scanner scanner = new Scanner(System.in); 
+
+		while(true){
+			Util.refresh(); 
+			banner = generateBanner(); 
+			System.out.println(banner); 
+
+			if (selection == SHOOT){
+				System.out.println(blueShoot); 
+				System.out.println(whiteConfig); 
+				System.out.println(whiteExit); 	
+			}	
+			else if (selection == CONFIG){
+				System.out.println(whiteShoot); 
+				System.out.println(blueConfig); 
+				System.out.println(whiteExit); 	
 			}
+			else {
+				System.out.println(whiteShoot); 
+				System.out.println(whiteConfig); 
+				System.out.println(blueExit); 	
+			}
+			System.out.println("Hit enter to toggle around"); 
+			input = scanner.nextLine(); 
+
+			selection = (selection+1)%3; 
+
+			//Thread.sleep(2000); 
+		}	
 	}
 
 	private static void animateBanner() throws InterruptedException{
