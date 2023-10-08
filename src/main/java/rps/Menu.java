@@ -5,12 +5,17 @@ public class Menu {
 	
 	// writing the characters as arrays of strings were each entry is one line. Then constructing each character. Whenever I want to 
 	// append two characters I just append their respective lines
-	
+	final static String whiteShoot  = generateWhiteShoot(); 	
+	final static String whiteConfig = generateWhiteConfig(); 
+	final static String whiteExit   = generateWhiteExit(); 
+	final static String blueShoot   = generateBlueShoot(); 
+	final static String blueConfig  = generateBlueConfig(); 
+	final static String blueExit    = generateBlueExit(); 
+
 	public static void main (String[] args) throws Exception{
 			// animateBanner(); 
-			//System.out.println(Util.BOLT+"TEST"+Util.RESET); 
 			for (int i = 0; i<5; i++){
-				System.out.println(Util.smallN[i]+Util.smallT[i]+Util.smallH[i]+Util.smallF[i]+Util.smallG[i]+Util.smallX[i]); 	
+				System.out.println(Util.smallWhiteS[i]+Util.smallWhiteE[i]+Util.smallBlueC[i]+Util.smallBlueI[i]+Util.smallBlueG[i]+Util.smallBlueX[i]); 	
 			}
 	}
 
@@ -23,6 +28,50 @@ public class Menu {
 			Thread.sleep(2000); 	
 		}
 	}
+	private static String generateWhiteShoot(){
+		String shoot = ""; 
+		for (int line = 0; line < Util.SMALLLETTERHEIGHT; line++){
+			shoot += Util.smallWhiteS[line] + Util.smallWhiteH[line] + Util.smallWhiteO[line] + Util.smallWhiteO[line] + Util.smallWhiteT[line] + "\n"; 
+		}
+		return shoot; 	
+	}
+	private static String generateBlueShoot(){
+		String shoot = ""; 
+		for (int line = 0; line < Util.SMALLLETTERHEIGHT; line++){
+			shoot += Util.smallBlueS[line] + Util.smallBlueH[line] + Util.smallBlueO[line] + Util.smallBlueO[line] + Util.smallBlueT[line] + "\n"; 
+		}
+		return shoot; 	
+	}
+	private static String generateWhiteConfig(){
+		String config = ""; 
+		for (int line = 0; line < Util.SMALLLETTERHEIGHT; line++){
+			config += Util.smallWhiteC[line] + Util.smallWhiteO[line] + Util.smallWhiteN[line] + Util.smallWhiteF[line] + Util.smallWhiteI[line] + Util.smallWhiteG[line] + "\n"; 
+		}
+		return config; 	
+	}
+	private static String generateBlueConfig(){
+		String config = ""; 
+		for (int line = 0; line < Util.SMALLLETTERHEIGHT; line++){
+			config += Util.smallBlueC[line] + Util.smallBlueO[line] + Util.smallBlueN[line] + Util.smallBlueF[line] + Util.smallBlueI[line] + Util.smallBlueG[line] + "\n"; 
+		}
+		return config; 	
+	}
+	private static String generateWhiteExit(){
+		String exit = ""; 
+		for (int line = 0; line < Util.SMALLLETTERHEIGHT; line++){
+			exit += Util.smallWhiteE[line] + Util.smallWhiteX[line] + Util.smallWhiteI[line] + Util.smallWhiteT[line] + "\n"; 
+		}
+		return exit; 	
+	}
+	private static String generateBlueExit(){
+		String exit = ""; 
+		for (int line = 0; line < Util.SMALLLETTERHEIGHT; line++){
+			exit += Util.smallBlueE[line] + Util.smallBlueX[line] + Util.smallBlueI[line] + Util.smallBlueT[line] + "\n"; 
+		}
+		return exit; 	
+	}
+
+
 	private static String generateBanner(){
 		int[] color = new int[Util.BANNERLENGTH]; 
 		String banner = "" ; 

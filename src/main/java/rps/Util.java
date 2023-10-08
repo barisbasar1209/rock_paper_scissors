@@ -4,20 +4,39 @@ import java.util.Random;
 
 public class Util {
 		
+	final static String BOLT = "\u001B[0m";
 	final static String RESET = "\u001B[0m"; 	
 	final static String WHITE = "\u001B[97m"; 
 	final static String RED = "\u001B[91m"; 
 	final static String GREEN = "\u001B[92m"; 
-	final static String YELLOW = "\u001B[93m";
-	final static String BOLT = "\u001B[0m";
+	final static String YELLOW = "\u001B[93m"+BOLT;
+	final static String BLUE = "\u001B[94m"; 
 
 
-	final static String[] smallH = {"#   #   ","#   #   ","#####   ","#   #   ","#   #   "};
-	final static String[] smallT = {"#####   ","  #     ","  #     ","  #     ","  #     "};
-	final static String[] smallN = {"#   #   ","##  #   ","# # #   ","#  ##   ","#   #   "};
-	final static String[] smallF = {"#####   ","#       ","###     ","#       ","#       "};
-	final static String[] smallG = {" ####   ","#       ","# ###   ","#   #   "," ####   "};
-	final static String[] smallX = {"#   #   "," # #    ","  #     "," # #    ","#   #   "};
+	final static String[] smallWhiteH = {"#   #   ","#   #   ","#####   ","#   #   ","#   #   "};
+	final static String[] smallWhiteT = {"#####   ","  #     ","  #     ","  #     ","  #     "};
+	final static String[] smallWhiteN = {"#   #   ","##  #   ","# # #   ","#  ##   ","#   #   "};
+	final static String[] smallWhiteF = {"#####   ","#       ","###     ","#       ","#       "};
+	final static String[] smallWhiteG = {" ####   ","#       ","# ###   ","#   #   "," ####   "};
+	final static String[] smallWhiteX = {"#   #   "," # #    ","  #     "," # #    ","#   #   "};
+	final static String[] smallWhiteC = {" ####   ","#   #   ","#       ","#   #   "," ####   "}; 
+	final static String[] smallWhiteE = {"#####   ","#       ","#####   ","#       ","#####   "}; 
+	final static String[] smallWhiteI = {"#####   ","  #     ","  #     ","  #     ","#####   "}; 
+	final static String[] smallWhiteO = {" ###    ","#   #   ","#   #   ","#   #   "," ###    "}; 
+	final static String[] smallWhiteS = {" ####   ","#       "," ###    ","    #   ","####    "}; 
+
+	final static String[] smallBlueH = {BLUE+"#   #   "+RESET,BLUE+"#   #   "+RESET,BLUE+"#####   "+RESET,BLUE+"#   #   "+RESET,BLUE+"#   #   "+RESET};
+	final static String[] smallBlueT = {BLUE+"#####   "+RESET,BLUE+"  #     "+RESET,BLUE+"  #     "+RESET,BLUE+"  #     "+RESET,BLUE+"  #     "+RESET};
+	final static String[] smallBlueN = {BLUE+"#   #   "+RESET,BLUE+"##  #   "+RESET,BLUE+"# # #   "+RESET,BLUE+"#  ##   "+RESET,BLUE+"#   #   "+RESET};
+	final static String[] smallBlueF = {BLUE+"#####   "+RESET,BLUE+"#       "+RESET,BLUE+"###     "+RESET,BLUE+"#       "+RESET,BLUE+"#       "+RESET};
+	final static String[] smallBlueG = {BLUE+" ####   "+RESET,BLUE+"#       "+RESET,BLUE+"# ###   "+RESET,BLUE+"#   #   "+RESET,BLUE+" ####   "+RESET};
+	final static String[] smallBlueX = {BLUE+"#   #   "+RESET,BLUE+" # #    "+RESET,BLUE+"  #     "+RESET,BLUE+" # #    "+RESET,BLUE+"#   #   "+RESET};
+	final static String[] smallBlueC = {BLUE+" ####   "+RESET,BLUE+"#   #   "+RESET,BLUE+"#       "+RESET,BLUE+"#   #   "+RESET,BLUE+" ####   "+RESET}; 
+	final static String[] smallBlueE = {BLUE+"#####   "+RESET,BLUE+"#       "+RESET,BLUE+"#####   "+RESET,BLUE+"#       "+RESET,BLUE+"#####   "+RESET}; 
+	final static String[] smallBlueI = {BLUE+"#####   "+RESET,BLUE+"  #     "+RESET,BLUE+"  #     "+RESET,BLUE+"  #     "+RESET,BLUE+"#####   "+RESET}; 
+	final static String[] smallBlueO = {BLUE+" ###    "+RESET,BLUE+"#   #   "+RESET,BLUE+"#   #   "+RESET,BLUE+"#   #   "+RESET,BLUE+" ###    "+RESET}; 
+	final static String[] smallBlueS = {BLUE+" ####   "+RESET,BLUE+"#       "+RESET,BLUE+" ###    "+RESET,BLUE+"    #   "+RESET,BLUE+"####    "+RESET}; 
+
 
 	final static String[] whiteR = {"#######   ","#      #  ","#      #  ","#      #  ","#######   ","#    #    ","#     #   ","#      #  "}; 
 	final static String[] whiteO = {" #####    ","#     #   ","#     #   ","#     #   ","#     #   ","#     #   ","#     #   "," #####    "}; 
@@ -68,7 +87,8 @@ public class Util {
 	final static String[][] E = {whiteE, redE, yellowE, greenE};
 	final static String[][] S = {whiteS, redS, yellowS, greenS};
 	final static String[][] I = {whiteI, redI, yellowI, greenI};
-	
+
+	final static int SMALLLETTERHEIGHT = 5;	
 	final static int LETTERHEIGHT = 8; 
 	final static int BANNERLENGTH = 17; 
 	static Random random = new Random(); 
