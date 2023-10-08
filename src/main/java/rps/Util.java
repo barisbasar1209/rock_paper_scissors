@@ -12,7 +12,8 @@ public class Util {
 	final static String YELLOW = "\u001B[93m"+BOLT;
 	final static String BLUE = "\u001B[94m"; 
 
-
+	
+	// different letters needed for constructing the menu page. each entry in the array corresponds to one line of the character. 
 	final static String[] smallWhiteH = {"#   #   ","#   #   ","#####   ","#   #   ","#   #   "};
 	final static String[] smallWhiteT = {"#####   ","  #     ","  #     ","  #     ","  #     "};
 	final static String[] smallWhiteN = {"#   #   ","##  #   ","# # #   ","#  ##   ","#   #   "};
@@ -36,7 +37,6 @@ public class Util {
 	final static String[] smallBlueI = {BLUE+"#####   "+RESET,BLUE+"  #     "+RESET,BLUE+"  #     "+RESET,BLUE+"  #     "+RESET,BLUE+"#####   "+RESET}; 
 	final static String[] smallBlueO = {BLUE+" ###    "+RESET,BLUE+"#   #   "+RESET,BLUE+"#   #   "+RESET,BLUE+"#   #   "+RESET,BLUE+" ###    "+RESET}; 
 	final static String[] smallBlueS = {BLUE+" ####   "+RESET,BLUE+"#       "+RESET,BLUE+" ###    "+RESET,BLUE+"    #   "+RESET,BLUE+"####    "+RESET}; 
-
 
 	final static String[] whiteR = {"#######   ","#      #  ","#      #  ","#      #  ","#######   ","#    #    ","#     #   ","#      #  "}; 
 	final static String[] whiteO = {" #####    ","#     #   ","#     #   ","#     #   ","#     #   ","#     #   ","#     #   "," #####    "}; 
@@ -77,7 +77,8 @@ public class Util {
 	final static String[] greenE = {GREEN+"#######   "+RESET,GREEN+"#         "+RESET,GREEN+"#         "+RESET,GREEN+"#         "+RESET,GREEN+"#######   "+RESET,GREEN+"#         "+RESET,GREEN+"#         "+RESET,GREEN+"#######   "+RESET};
 	final static String[] greenS = {GREEN+" #####    "+RESET,GREEN+"#         "+RESET,GREEN+"#         "+RESET,GREEN+" #####    "+RESET,GREEN+"      #   "+RESET,GREEN+"      #   "+RESET,GREEN+"      #   "+RESET,GREEN+"######    "+RESET};
 	final static String[] greenI = {GREEN+"#######   "+RESET,GREEN+"   #      "+RESET,GREEN+"   #      "+RESET,GREEN+"   #      "+RESET,GREEN+"   #      "+RESET,GREEN+"   #      "+RESET,GREEN+"   #      "+RESET,GREEN+"#######   "+RESET};
-	
+
+	// each array hold all three different colors a normal sized letter for the banner can have so that the color of the letter can later on be randomly decided by accessing the index with randomInt	
 	final static String[][] R = {whiteR, redR, yellowR, greenR};
 	final static String[][] O = {whiteO, redO, yellowO, greenO};
 	final static String[][] C = {whiteC, redC, yellowC, greenC};
@@ -88,16 +89,21 @@ public class Util {
 	final static String[][] S = {whiteS, redS, yellowS, greenS};
 	final static String[][] I = {whiteI, redI, yellowI, greenI};
 
+	// constants 
 	final static int SMALLLETTERHEIGHT = 5;	
 	final static int LETTERHEIGHT = 8; 
 	final static int BANNERLENGTH = 17; 
+
+	// making random accessible throughout the entire project
 	static Random random = new Random(); 
 
+	// not sure if necessary, check if can be deleted 
 	public static String insertIcon(String string, int idx, String replacement) {
 		String retString = ""; 
 		retString = string.substring(0, idx) + replacement + string.substring(idx+2);
 		return retString; 
 	}
+	// replace character at idx in given string. Returns the modified version of the provided string
 	public static String replaceIdx(String string, int idx, char replacement) throws RuntimeException{
 		char[] tmp = string.toCharArray(); 
 		if (idx>=0 && idx<tmp.length){
@@ -108,25 +114,27 @@ public class Util {
 		}	
 		String retString = new String(tmp); 
 		return retString; 
-		
 	}
+
+	// refreshes the terminal by pushing the current page up and flushing
 	public static void refresh(){
 		System.out.print("\033[H\033[2J"); 
 		System.out.flush(); 	
 	}
 
+	// pads a provided string with provided character from the left size as often as specified 
 	public static String padLeft(String string, int padSize, char symbol){
 		for (int i = 0; i<padSize; i++){
 			string = symbol + string; 		
 		}	
 		return string; 
 	}
-	
+
+	// same as padLeft from the right hand side	
 	public static String padRight(String string, int padSize){
 		for (int i = 0; i<padSize; i++){
 			string = string + " "; 		
 		}	
 		return string; 
 	}
-
 }
