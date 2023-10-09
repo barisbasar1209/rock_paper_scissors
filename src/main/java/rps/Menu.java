@@ -15,9 +15,14 @@ public class Menu {
 	final static String blueShoot   = generateBlueShoot(); 
 	final static String blueConfig  = generateBlueConfig(); 
 	final static String blueExit    = generateBlueExit(); 
+	
+	static char[][] frame = new char[37][185]; // making it 6845 characters 37 high x 185 wide
 
 	public static void main (String[] args) throws Exception{
-		
+			String frame = Util.padLeft("", 6845, "#"); 
+			System.out.println(frame); 
+	}	
+	public static void printMenu(){	
 		int selection = SHOOT; 	
 		String banner = ""; 
 		String input = ""; 

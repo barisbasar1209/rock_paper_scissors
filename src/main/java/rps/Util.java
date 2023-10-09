@@ -122,18 +122,31 @@ public class Util {
 		System.out.flush(); 	
 	}
 
-	// pads a provided string with provided character from the left size as often as specified 
-	public static String padLeft(String string, int padSize, char symbol){
+	// pads a provided character with provided string from the left size as often as specified 
+	public static String padLeft(String string, int padSize, char padWith){
 		for (int i = 0; i<padSize; i++){
-			string = symbol + string; 		
+			string = padWith + string; 		
 		}	
 		return string; 
 	}
-
-	// same as padLeft from the right hand side	
-	public static String padRight(String string, int padSize){
+	// pads a provided string with provided string from the left size as often as specified 
+	public static String padLeft(String string, int padSize, String padWith){
 		for (int i = 0; i<padSize; i++){
-			string = string + " "; 		
+			string = padWith + string; 		
+		}	
+		return string; 
+	}
+	// same as padLeft from the right hand side	
+	public static String padRight(String string, int padSize, char padWith){
+		for (int i = 0; i<padSize; i++){
+			string = string + padWith; 		
+		}	
+		return string; 
+	}
+	// same as padLeft from the right hand side	
+	public static String padRight(String string, int padSize, String padWith){
+		for (int i = 0; i<padSize; i++){
+			string = string + padWith; 		
 		}	
 		return string; 
 	}

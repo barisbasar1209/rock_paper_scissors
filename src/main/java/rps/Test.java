@@ -1,6 +1,5 @@
 package rps; 
 import java.util.Scanner; 
-import java.lang.Thread; 
 
 public class Test {
 	private static volatile boolean shouldQuit = false; 
