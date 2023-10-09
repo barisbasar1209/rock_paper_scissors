@@ -3,15 +3,19 @@ package rps;
 import java.util.Random; 
 
 public class Util {
-		
-	final static String BOLT = "\u001B[0m";
-	final static String RESET = "\u001B[0m"; 	
-	final static String WHITE = "\u001B[97m"; 
-	final static String RED = "\u001B[91m"; 
-	final static String GREEN = "\u001B[92m"; 
-	final static String YELLOW = "\u001B[93m"+BOLT;
-	final static String BLUE = "\u001B[94m"; 
+	
+	final static char NULLCHAR  = '\u0000'; 	
 
+	final static String BOLT 	= "\u001B[0m";
+	final static String RESET 	= "\u001B[0m"; 	
+	final static String WHITE 	= "\u001B[97m"; 
+	final static String RED  	= "\u001B[91m"; 
+	final static String GREEN 	= "\u001B[92m"; 
+	final static String YELLOW 	= "\u001B[93m"+BOLT;
+	final static String BLUE 	= "\u001B[94m"; 
+
+	final static String dividerH 	= Util.padLeft("", 185, '#');	
+	final static String dividerV 	= Util.padLeft("", 22, "#"); 
 	
 	// different letters needed for constructing the menu page. each entry in the array corresponds to one line of the character. 
 	final static String[] smallWhiteH = {"#   #   ","#   #   ","#####   ","#   #   ","#   #   "};

@@ -13,7 +13,7 @@ public class Frame {
 		StringBuilder stringBuilder = new StringBuilder();
 		for(char[] row : frame){
 			for(char c : row){
-				if (c == '\u0000') stringBuilder.append(' '); 
+				if (c == Util.NULLCHAR) stringBuilder.append(' '); 
 				else stringBuilder.append(c); 	
 			}	
 			stringBuilder.append('\n'); 
@@ -30,14 +30,35 @@ public class Frame {
 		}
 		frame[y][x] = setAs; 	
 	}
-	// sets section in the y-th row beginning from x to the provided string. Throws exception if x, y are out of bounds. Continous to write in next line if to long for current  
-	public void setSection(int x, int y, String setAs) throws Exception{
+	// sets section vertically in the x-th column, beginning from y, to the provided string
+	// throws exception if x,y are out of bounds. Does not continue to write in next column if too long for current, throws exception as well
+	public void setSectionV (int x, int y, String setAs) throws Exception{
 		if (y>=37 || y<0) {
 			throw new Exception("Error: y is out of bounds in \"setSection\". y = " + y);  
 		}
 		if (x>=185 || x<0) {
 			throw new Exception("Error: x is out of bounds in \"setSection\". x = " + x); 
 		}
+
+		int len = setAs.length(); 
+		if (y + len > 37){
+			throw new Exception("Error: provided String is to long to be printed in the " + x + "-th column, beginning in the " + y + "-th row. Length is " + len); 
+		}
+		// fits completely in the x-th column 
+		for (int i = 0; i<len; i++){
+			setPosition(x, y+i, setAs.charAt(i)); 	
+		}
+	}
+	// sets section horizontally in the y-th row, beginning from x, to the provided string. 
+	// Throws exception if x, y are out of bounds. Continous to write in next line if too long for current  
+	public void setSectionH (int x, int y, String setAs) throws Exception{
+		if (y>=37 || y<0) {
+			throw new Exception("Error: y is out of bounds in \"setSection\". y = " + y);  
+		}
+		if (x>=185 || x<0) {
+			throw new Exception("Error: x is out of bounds in \"setSection\". x = " + x); 
+		}
+
 		int len = setAs.length(); 
 		if (x + len <= 185){ // fits completely into one y-th line 
 			for (int i = 0; i<len; i++){
@@ -63,5 +84,12 @@ public class Frame {
 				}
 			}
 		}
+	}
+	// sets a big string I constructed with the hashtag symbol in the frame line by line
+	public void setBigString(int x, int y, String setAs) throws Exception{
+		String[] lines = setAs.split("\n"); 
+		for(int i = 0; i<lines.length; i++){
+			setSectionH(x,y+i,lines[i]); 
+		}	
 	}
 }
