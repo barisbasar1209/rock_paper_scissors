@@ -11,7 +11,7 @@ public class Util {
 	final static String WHITE 	= "\u001B[97m"; 
 	final static String RED  	= "\u001B[91m"; 
 	final static String GREEN 	= "\u001B[92m"; 
-	final static String YELLOW 	= "\u001B[93m"+BOLD;
+	final static String YELLOW 	= "\u001B[93m";
 	final static String BLUE 	= "\u001B[94m"; 
 
 	final static String dividerH 	= Util.padLeft("", 185, '#');	
@@ -116,7 +116,6 @@ public class Util {
 	// returns the length the string would have without colorcodes	
 	public static int colorlessLength(String string){
 		int length = 0; 
-		// System.out.println("RESET.length(): " + RESET.length() + "\ncountOccurrences(\""+string+"\", RESET): " + countOccurrences(string, RESET) + "\nGREEN.length(): " + GREEN.length() + "\ncountOccurrences(\"" + string + "\", GREEN): " + countOccurrences(string, GREEN) + "\nWHITE.length(): " + WHITE.length() + "\ncountOccurrences(\"" + string + "\", WHITE): " + countOccurrences(string,WHITE) + "\nRED.length(): " + RED.length() + "\ncountOccurrences(\"" + string + "\", RED): " + countOccurrences(string,RED));
 		//length += BOLD.length()   * countOccurrences(string, BOLD); 
 		length += RESET.length()  * countOccurrences(string, RESET); 
 		length += WHITE.length()  * countOccurrences(string, WHITE); 

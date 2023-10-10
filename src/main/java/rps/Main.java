@@ -14,7 +14,7 @@ public class Main {
 				System.out.println("starting a new game"); 
 				b.runGame(); */
 
-				Frame frame = new Frame(); 
+				/*Frame frame = new Frame(); 
 				frame.setSectionH(0,11,Util.dividerH); 
 				frame.setSectionH(0,34,Util.dividerH); 
 				frame.setSectionV(45,12,Util.dividerV); 
@@ -26,6 +26,10 @@ public class Main {
 				frame.setBigString(70,21,Menu.whiteConfig);
 				frame.setBigString(79,28,Menu.whiteExit);
 				frame.setBigString(4,2,Menu.generateBanner()); 
+				System.out.println(frame.toString()); */
+
+				Frame frame = new Frame(); 
+				frame.setSectionH(183, 0, "White " + Util.RED+ "Red " + Util.RESET + "White again " + Util.BLUE + "Blue" + Util.RESET); 
 				System.out.println(frame.toString()); 
 		}
 }

@@ -9,9 +9,7 @@ public class Test {
 		String s2 = "Hello\n"; 
 		String s3 = Util.RED + "Hello"; 
 		String s4 = Util.YELLOW + "Hello" + Util.RESET; 
-		System.out.println(s4.length()); 
-		System.out.println(Util.colorlessLength(s4)); 
-		System.out.println(s4); 
+		System.out.println(Util.RED.length()); 
 	}
 	public static void threadTests(){
 			Thread printThread = new Thread(() -> {
