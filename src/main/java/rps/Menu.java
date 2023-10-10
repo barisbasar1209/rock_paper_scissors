@@ -114,8 +114,8 @@ public class Menu {
 
 		// randomly generating coloring for the entire banner with 17 letters
 		for (int i = 0; i<Util.BANNERLENGTH; i++){
-			//color[i] = Util.random.nextInt(4);	
-			color[i] = 0; 
+			color[i] = Util.random.nextInt(4);	
+			//color[i] = 0; 
 		}
 		for (int line = 0; line < Util.LETTERHEIGHT; line++){
 			// applying the generated colring to the letters and concatenating letters to form the final, colorized, banner

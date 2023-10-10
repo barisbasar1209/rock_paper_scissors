@@ -2,7 +2,7 @@ package rps;
 
 public class Frame {
 		
-	private static String[][] frame = new String[37][185]; // creating a frame/board with 6845 characters and height 37 x width 185 which fits more my own monitor
+	public static String[][] frame = new String[37][185]; // creating a frame/board with 6845 characters and height 37 x width 185 which fits more my own monitor
 	
 	// clears the entire frame 
 	public void clear(){
@@ -20,25 +20,10 @@ public class Frame {
 		}	
 		return stringBuilder.toString(); 
 	}
-	// sets the specified position in the frame as the provided character making it possible to manipulate positions on the frame sperately
-	/*public void setPosition(int x, int y, String setAs) throws Exception{
-		if (y>=37 || y<0) {
-			throw new Exception("Error: y is out of bounds in \"setPosition\". y = " + y);  
-		}
-		if (x>=185 || x<0) {
-			throw new Exception("Error: x is out of bounds in \"setPosition\". x = " + x); 
-		}
-		frame[y][x] = setAs; 	
-	}*/
 	// sets section vertically in the x-th column, beginning from y, to the provided string
 	// throws exception if x,y are out of bounds. Does not continue to write in next column if too long for current, throws exception as well
 	public void setSectionV (int x, int y, String setAs) throws Exception{
-		if (y>=37 || y<0) {
-			throw new Exception("Error: y is out of bounds in \"setSection\". y = " + y);  
-		}
-		if (x>=185 || x<0) {
-			throw new Exception("Error: x is out of bounds in \"setSection\". x = " + x); 
-		}
+		checkIndicesInBound(x,y); 
 
 		int len = setAs.length(); 
 		if (y + len > 37){
@@ -56,46 +41,47 @@ public class Frame {
 	// sets section horizontally in the y-th row, beginning from x, to the provided string. 
 	// Throws exception if x, y are out of bounds. Continous to write in next line if too long for current  
 	public void setSectionH (int x, int y, String setAs) throws Exception{
-		if (y>=37 || y<0) {
-			throw new Exception("Error: y is out of bounds in \"setSection\". y = " + y);  
-		}
-		if (x>=185 || x<0) {
-			throw new Exception("Error: x is out of bounds in \"setSection\". x = " + x); 
-		}
-		
+		checkIndicesInBound(x,y); 
+
 		// repeting code in the control flow , need to fix that but later not now 
 		int pureLen = Util.colorlessLength(setAs); ; 
 		int len = setAs.length(); 
+		System.out.println("pureLen: " + pureLen + "\nlen: " + len); 
 		if (x + pureLen <= 185){ // fits completely into one y-th line 
-			for (int i = 0; i<len; i++){
+			System.out.println("Entering if case"); 
+			for (int column = 0, crrChar = 0; crrChar<len; crrChar++){
 				// check whether or not I hit a unicode
-				if (setAs.charAt(i) == '\u001B'){
+				if (setAs.charAt(crrChar) == '\u001B'){
 					// with the last RESET i+5 is out of bounds so I need to catch it
-					if (i+5>=len) {
-						frame[y][i-1] += Util.RESET; 
-						i+=4; 	
+					if (crrChar+5>=len) {
+						frame[y][column-1] = "" + frame[y][column-1] + "" + Util.RESET; 
+						crrChar+=4; 	
 					}
 					else{
-						String unicode = setAs.substring(i, i+5); 
-						// RESET is the only used code here that's not 5 long
+						String unicode = setAs.substring(crrChar, crrChar+4); 
 						if (unicode == Util.RESET) { 
 							// if I hit a RESET then I know that there has to be a character before that already being written in the frame at index i-1 so I append RESET in that
-							frame[y][i-1] += Util.RESET; 	
+							frame[y][column-1] = "" + frame[y][column-1] + Util.RESET; 	
 							// unsure whether I would also cover the very last reset in a string
-							i += 4; 
+							crrChar += 4; 
 						}	
 						// one of the colors, they are all 5 characters long
 						else { 				
-							frame[y][i] = unicode + setAs.charAt(i); 
-							i += 5; 
+							unicode += setAs.charAt(crrChar+5); 
+							crrChar += 5; 
+							frame[y][column] = unicode + setAs.charAt(++crrChar); 
+							System.out.println("found color code. Writing: " + setAs.charAt(crrChar));
+							column++; 
 						}	
 					}
 				}
-				// if not a unicode just write character as string in the position 
+				// if not a unicode just write character as string in the position and move to next column
 				else {
-					frame[y][i] = Character.toString(setAs.charAt(i)); 	
+					frame[y][column] = Character.toString(setAs.charAt(crrChar)); 	
+					column++; 
 				}
 			}
+			System.out.println("Loop exited successfully in if case"); 
 		}
 		else{ // has to be continued in next line
 			
@@ -151,8 +137,20 @@ public class Frame {
 	// sets a big string I constructed with the hashtag symbol in the frame line by line
 	public void setBigString(int x, int y, String setAs) throws Exception{
 		String[] lines = setAs.split("\n"); 
+		System.out.println("lines.length: " + lines.length); 
+		System.out.println("setBigString(" + x + ", " + y + ", banner)"); 
+		Thread.sleep(2500); 
 		for(int i = 0; i<lines.length; i++){
+			System.out.println("i: " + i); 
 			setSectionH(x,y+i,lines[i]); 
 		}	
+	}
+	private static void checkIndicesInBound(int x, int y) throws Exception{
+		if (y>=37 || y<0) {
+			throw new Exception("Error: y is out of bounds in \"setSection\". y = " + y);  
+		}
+		if (x>=185 || x<0) {
+			throw new Exception("Error: x is out of bounds in \"setSection\". x = " + x); 
+		}
 	}
 }
