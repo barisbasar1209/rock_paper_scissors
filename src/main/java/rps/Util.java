@@ -6,12 +6,12 @@ public class Util {
 	
 	final static char NULLCHAR  = '\u0000'; 	
 
-	final static String BOLT 	= "\u001B[0m";
+	final static String BOLD 	= "\u001B[1m";
 	final static String RESET 	= "\u001B[0m"; 	
 	final static String WHITE 	= "\u001B[97m"; 
 	final static String RED  	= "\u001B[91m"; 
 	final static String GREEN 	= "\u001B[92m"; 
-	final static String YELLOW 	= "\u001B[93m"+BOLT;
+	final static String YELLOW 	= "\u001B[93m"+BOLD;
 	final static String BLUE 	= "\u001B[94m"; 
 
 	final static String dividerH 	= Util.padLeft("", 185, '#');	
@@ -100,7 +100,32 @@ public class Util {
 
 	// making random accessible throughout the entire project
 	static Random random = new Random(); 
+	
+	// returns the number of times the second argument occurs as a substring in the first argument	
+	public static int countOccurrences(String string, String substring){
+		int cnt = 0; 
+		int idx = string.indexOf(substring); 
 
+		while(idx != -1){
+			cnt++; 
+			idx = string.indexOf(substring, idx+1); 	
+		}
+		return cnt; 	
+	}
+
+	// returns the length the string would have without colorcodes	
+	public static int colorlessLength(String string){
+		int length = 0; 
+		// System.out.println("RESET.length(): " + RESET.length() + "\ncountOccurrences(\""+string+"\", RESET): " + countOccurrences(string, RESET) + "\nGREEN.length(): " + GREEN.length() + "\ncountOccurrences(\"" + string + "\", GREEN): " + countOccurrences(string, GREEN) + "\nWHITE.length(): " + WHITE.length() + "\ncountOccurrences(\"" + string + "\", WHITE): " + countOccurrences(string,WHITE) + "\nRED.length(): " + RED.length() + "\ncountOccurrences(\"" + string + "\", RED): " + countOccurrences(string,RED));
+		//length += BOLD.length()   * countOccurrences(string, BOLD); 
+		length += RESET.length()  * countOccurrences(string, RESET); 
+		length += WHITE.length()  * countOccurrences(string, WHITE); 
+		length += RED.length()    * countOccurrences(string, RED); 
+	   	length += BLUE.length()   * countOccurrences(string, BLUE); 	
+	   	length += GREEN.length()  * countOccurrences(string, GREEN); 	
+	   	length += YELLOW.length() * countOccurrences(string, YELLOW); 	
+		return (string.length() - length); 
+	}
 	// not sure if necessary, check if can be deleted 
 	public static String insertIcon(String string, int idx, String replacement) {
 		String retString = ""; 

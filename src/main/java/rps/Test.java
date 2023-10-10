@@ -5,6 +5,15 @@ public class Test {
 	private static volatile boolean shouldQuit = false; 
 
 	public static void main(String[] args) {
+		String s1 = "Hello"; 
+		String s2 = "Hello\n"; 
+		String s3 = Util.RED + "Hello"; 
+		String s4 = Util.YELLOW + "Hello" + Util.RESET; 
+		System.out.println(s4.length()); 
+		System.out.println(Util.colorlessLength(s4)); 
+		System.out.println(s4); 
+	}
+	public static void threadTests(){
 			Thread printThread = new Thread(() -> {
 				while(!shouldQuit){
 					System.out.println("A"); 
