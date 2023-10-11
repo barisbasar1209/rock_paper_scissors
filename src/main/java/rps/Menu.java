@@ -110,22 +110,22 @@ public class Menu {
 
 	public static String generateBanner(){
 		int[] color = new int[Util.BANNERLENGTH]; 
-		String banner = "" ; 
+		StringBuilder banner = new StringBuilder();
 
 		// randomly generating coloring for the entire banner with 17 letters
 		for (int i = 0; i<Util.BANNERLENGTH; i++){
-			color[i] = Util.random.nextInt(4);	
-			//color[i] = 0; 
+			//color[i] = Util.random.nextInt(4);	
+			color[i] = i%3+1; 
 		}
 		for (int line = 0; line < Util.LETTERHEIGHT; line++){
 			// applying the generated colring to the letters and concatenating letters to form the final, colorized, banner
-			banner = banner +  
-					Util.R[color[0]][line] + Util.O[color[1]][line] + Util.C[color[2]][line] + Util.K[color[3]][line] + "     " + // ROCK 
-				 	Util.P[color[4]][line] + Util.A[color[5]][line] + Util.P[color[6]][line] + Util.E[color[7]][line] + Util.R[color[8]][line] + "     " + // PAPER
+			banner.append( 
+					Util.R[color[0]][line] + Util.O[color[1]][line] + Util.C[color[2]][line] + Util.K[color[3]][line] + "ooooo" + // ROCK 
+				 	Util.P[color[4]][line] + Util.A[color[5]][line] + Util.P[color[6]][line] + Util.E[color[7]][line] + Util.R[color[8]][line] + "ooooo" + // PAPER
 					Util.S[color[9]][line] + Util.C[color[10]][line] + Util.I[color[11]][line] + Util.S[color[12]][line] + Util.S[color[13]][line] + 
-					Util.O[color[14]][line] + Util.R[color[15]][line] + Util.S[color[16]][line] + "\n"; // SCISSORS
+					Util.O[color[14]][line] + Util.R[color[15]][line] + Util.S[color[16]][line] + "\n"); // SCISSORS
 		}
-		return banner; 
+		return banner.toString(); 
 	}
 }
 

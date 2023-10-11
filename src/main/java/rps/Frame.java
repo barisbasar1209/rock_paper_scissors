@@ -46,54 +46,58 @@ public class Frame {
 		// repeting code in the control flow , need to fix that but later not now 
 		int pureLen = Util.colorlessLength(setAs); ; 
 		int len = setAs.length(); 
-		System.out.println("pureLen: " + pureLen + "\nlen: " + len); 
+		System.out.println("purelen: "+pureLen+" len: "+len);
 		if (x + pureLen <= 185){ // fits completely into one y-th line 
-			System.out.println("Entering if case"); 
 			for (int column = 0, crrChar = 0; crrChar<len; crrChar++){
-				System.out.println("Looping. column: " + column + " and crrChar: " + crrChar); 
-				Thread.sleep(1500); 
+
+				if (column == 185){
+					System.out.println("column == 185 already!!!\ncurrently written: "+ toString());	
+					Thread.sleep(2000); 
+					crrChar=len; 
+					continue;
+				}
 				// check whether or not I hit a unicode
 				if (setAs.charAt(crrChar) == '\u001B'){
+
+					System.out.println("Charracter at crrChar = "+crrChar+ " is a unicodeindicator");
+					System.out.println("column: "+column+" crrChar: "+crrChar);
+					Thread.sleep(2000);
 					// with the last RESET i+5 is out of bounds so I need to catch it
-					System.out.println("crrChar: " + crrChar); 
 					if (crrChar+5>=len) {
-						System.out.println("Appending Util.RESET to frame["+y+"]["+(column-1)+"]"); 
 						if (frame[y][column-1] == null) frame[y][column-1] = "" + frame[y][column-1] + Util.RESET; 
 						else frame[y][column-1] += Util.RESET; 
-						crrChar+=4; 	
+						crrChar+=3; 	
 					}
 					else{
 						String unicode = setAs.substring(crrChar, crrChar+4); 
 						if (unicode == Util.RESET) { 
-							System.out.println("Appending Util.RESET to frame["+y+"]["+(column-1)+"]"); 
-							System.out.println("else case and found RESET"); 
-							Thread.sleep(1500);
+							System.out.println("The unicode is a reset"); 
+							Thread.sleep(2000);
 							frame[y][column-1] = "" + frame[y][column-1] + Util.RESET; 	
-							// unsure whether I would also cover the very last reset in a string
-							crrChar += 4; 
+							crrChar += 3; 
 						}	
 						// one of the colors, they are all 5 characters long
 						else { 				
-							System.out.println("else case and found color");
-							Thread.sleep(1500);
+							System.out.println("The unicode is a color of length: " + unicode.length());
+							Thread.sleep(2000);
 							unicode = setAs.substring(crrChar, crrChar+5); 
-							crrChar += 5; 
-							frame[y][column] = unicode + setAs.charAt(crrChar); 
-							System.out.println("found color code. Writing: " + setAs.charAt(crrChar));
+							crrChar += 4; 
+							frame[y][column] = unicode + Character.toString(setAs.charAt(crrChar)); 
 							column++; 
 						}	
 					}
 				}
 				// if not a unicode just write character as string in the position and move to next column
 				else {
+					System.out.println("the character is not a unicode but a normal character: " + Character.toString(setAs.charAt(crrChar)));
+					System.out.println("column: "+column+" crrChar: "+crrChar);
 					frame[y][column] = Character.toString(setAs.charAt(crrChar)); 	
 					column++; 
 				}
 			}
-			System.out.println("Loop exited successfully in if case"); 
 		}
 		else{ // has to be continued in next line
-			
+			System.out.println("ERROR: ELSE CASE ENTERED"); 	
 			// same true here, repeting code, bad style, need to fix it later on
 			// for looping through the frames positions
 			int column = x; 
@@ -146,13 +150,10 @@ public class Frame {
 	// sets a big string I constructed with the hashtag symbol in the frame line by line
 	public void setBigString(int x, int y, String setAs) throws Exception{
 		String[] lines = setAs.split("\n"); 
-		System.out.println("lines.length: " + lines.length); 
-		System.out.println("setBigString(" + x + ", " + y + ", banner)"); 
-		Thread.sleep(2500); 
-		for(int i = 0; i<lines.length; i++){
-			System.out.println("i: " + i); 
+		/*for(int i = 0; i<lines.length; i++){
 			setSectionH(x,y+i,lines[i]); 
-		}	
+		}	*/
+		setSectionH(x,y,lines[0]);
 	}
 	private static void checkIndicesInBound(int x, int y) throws Exception{
 		if (y>=37 || y<0) {

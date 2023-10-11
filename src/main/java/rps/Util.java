@@ -9,6 +9,7 @@ public class Util {
 	final static String BOLD 	= "\u001B[1m";
 	final static String RESET 	= "\u001B[0m"; 	
 	final static String WHITE 	= "\u001B[97m"; 
+	
 	final static String RED  	= "\u001B[91m"; 
 	final static String GREEN 	= "\u001B[92m"; 
 	final static String YELLOW 	= "\u001B[93m";
