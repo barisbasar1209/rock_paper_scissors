@@ -27,8 +27,11 @@ public class Main {
 				//frame.setBigString(79,28,Menu.whiteExit);
 				//frame.setBigString(4,2,Menu.generateBanner()); 
 				//frame.setSectionH(0,0,Util.dividerH); // has length 185 + 5 + 4 = 194
-				frame.setSectionH(0,0,Util.RED + Util.dividerH + Util.RESET); 
-				System.out.println(frame.frame[0][0]+ Util.RESET); // should be a red #
-				System.out.println(frame.toString()); 
+				//frame.setSectionH(0,0,Util.RED + Util.dividerH + Util.RESET); 
+				frame.setSectionH(0,0, Util.RED + "#" + Util.RESET); 
+				System.out.println(frame.frame[0][0]); // should be a red #
+				System.out.println(frame.frame[0][1]);
+				System.out.println(frame.frame[0][2]);
+				//System.out.println(frame.toString()); 
 		}
 }

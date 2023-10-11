@@ -50,26 +50,35 @@ public class Frame {
 		if (x + pureLen <= 185){ // fits completely into one y-th line 
 			System.out.println("Entering if case"); 
 			for (int column = 0, crrChar = 0; crrChar<len; crrChar++){
+				System.out.println("Looping. column: " + column + " and crrChar: " + crrChar); 
+				Thread.sleep(1500); 
 				// check whether or not I hit a unicode
 				if (setAs.charAt(crrChar) == '\u001B'){
 					// with the last RESET i+5 is out of bounds so I need to catch it
+					System.out.println("crrChar: " + crrChar); 
 					if (crrChar+5>=len) {
-						frame[y][column-1] = "" + frame[y][column-1] + "" + Util.RESET; 
+						System.out.println("Appending Util.RESET to frame["+y+"]["+(column-1)+"]"); 
+						if (frame[y][column-1] == null) frame[y][column-1] = "" + frame[y][column-1] + Util.RESET; 
+						else frame[y][column-1] += Util.RESET; 
 						crrChar+=4; 	
 					}
 					else{
 						String unicode = setAs.substring(crrChar, crrChar+4); 
 						if (unicode == Util.RESET) { 
-							// if I hit a RESET then I know that there has to be a character before that already being written in the frame at index i-1 so I append RESET in that
+							System.out.println("Appending Util.RESET to frame["+y+"]["+(column-1)+"]"); 
+							System.out.println("else case and found RESET"); 
+							Thread.sleep(1500);
 							frame[y][column-1] = "" + frame[y][column-1] + Util.RESET; 	
 							// unsure whether I would also cover the very last reset in a string
 							crrChar += 4; 
 						}	
 						// one of the colors, they are all 5 characters long
 						else { 				
-							unicode += setAs.charAt(crrChar+5); 
+							System.out.println("else case and found color");
+							Thread.sleep(1500);
+							unicode = setAs.substring(crrChar, crrChar+5); 
 							crrChar += 5; 
-							frame[y][column] = unicode + setAs.charAt(++crrChar); 
+							frame[y][column] = unicode + setAs.charAt(crrChar); 
 							System.out.println("found color code. Writing: " + setAs.charAt(crrChar));
 							column++; 
 						}	
