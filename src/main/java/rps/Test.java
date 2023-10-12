@@ -5,11 +5,21 @@ public class Test {
 	private static volatile boolean shouldQuit = false; 
 
 	public static void main(String[] args) {
-		String s1 = "Hello"; 
-		String s2 = "Hello\n"; 
-		String s3 = Util.RED + "Hello"; 
-		String s4 = Util.YELLOW + "Hello" + Util.RESET; 
-		System.out.println(Util.RED.length()); 
+		/*String banner = Menu.generateBanner(); 
+		String[] decomp = banner.split("(?=\u001B\\[0m) | (?=[# ])");
+		StringBuilder sb = new StringBuilder(); 
+		//for(String part : decomp) sb.append(part); 
+		//System.out.println(sb.toString()); 
+		if (decomp[7] == " ") System.out.println("empty"); 
+		else System.out.println("not empty: " + decomp[7]); */
+		String string = "# # #"; 
+		String[] parts = string.split("(?<= )|(?= )"); 
+		System.out.println(parts.length); 
+		for (String part : parts){
+			if (part.equals(" ")) System.out.print("empty"); 
+			else System.out.print(part); 	
+		}
+		System.out.print("\n"); 
 	}
 	public static void threadTests(){
 			Thread printThread = new Thread(() -> {
