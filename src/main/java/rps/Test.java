@@ -12,8 +12,9 @@ public class Test {
 		//System.out.println(sb.toString()); 
 		if (decomp[7] == " ") System.out.println("empty"); 
 		else System.out.println("not empty: " + decomp[7]); */
-		String string = "# # #"; 
-		String[] parts = string.split("(?<= )|(?= )"); 
+		String string = Util.RED+"# # "+Util.RESET + Util.GREEN+" # #"+Util.RESET; 	
+		//String[] parts = string.split("(?<=[# ])|(?=[# ])"); 
+		String[] parts = Util.splitWithDelimiter(string, "[# ]"); 
 		System.out.println(parts.length); 
 		for (String part : parts){
 			if (part.equals(" ")) System.out.print("empty"); 

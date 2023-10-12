@@ -18,6 +18,8 @@ public class Util {
 	final static String dividerH 	= Util.padLeft("", 185, '#');	
 	final static String dividerV 	= Util.padLeft("", 22, "#"); 
 	
+	final static String WITH_DELIMITER = "((?<=%1$s)|(?=%1$s))";	
+
 	// different letters needed for constructing the menu page. each entry in the array corresponds to one line of the character. 
 	final static String[] smallWhiteH = {"#   #   ","#   #   ","#####   ","#   #   ","#   #   "};
 	final static String[] smallWhiteT = {"#####   ","  #     ","  #     ","  #     ","  #     "};
@@ -178,5 +180,10 @@ public class Util {
 			string = string + padWith; 		
 		}	
 		return string; 
+	}
+	// splitting the provided string on the provided delimiter such that the delimiter characters are included aswell 
+	public static String[] splitWithDelimiter(String string, String delimiter){
+		String[] parts = string.split(String.format(WITH_DELIMITER, delimiter)); 
+		return parts; 
 	}
 }
