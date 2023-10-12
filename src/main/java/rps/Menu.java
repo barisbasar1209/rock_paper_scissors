@@ -9,17 +9,18 @@ public class Menu {
 
 	// writing the characters as arrays of strings were each entry is one line. Then constructing each character. Whenever I want to 
 	// append two characters I just append their respective lines
-	final static String whiteShoot  = generateWhiteShoot(); 	
+	/*final static String whiteShoot  = generateWhiteShoot(); 	
 	final static String whiteConfig = generateWhiteConfig(); 
 	final static String whiteExit   = generateWhiteExit(); 
 	final static String blueShoot   = generateBlueShoot(); 
 	final static String blueConfig  = generateBlueConfig(); 
-	final static String blueExit    = generateBlueExit(); 
+	final static String blueExit    = generateBlueExit(); */
+	//final static String banner 		= generateBanner(); 
 		
 
 	public static void main (String[] args) throws Exception{
-		animateBanner(); 			
 	}	
+	/*
 	public static void printMenu(){	
 		int selection = SHOOT; 	
 		String banner = ""; 
@@ -54,7 +55,7 @@ public class Menu {
 			//Thread.sleep(2000); 
 		}	
 	}
-
+	
 	private static void animateBanner() throws InterruptedException{
 		String banner = ""; 
 		while(true){
@@ -106,9 +107,30 @@ public class Menu {
 		}
 		return exit; 	
 	}
+ 	*/
+	public static String generateBanner()throws Exception{
+		StringBuilder banner = new StringBuilder(); 
+		System.out.println(Util.C[1][7].length); 
+		Thread.sleep(2500); 
+		for (int line = 0; line < 8; line++){
+				System.out.println("line: "+line); 
+				banner.append(
+					generatePart(Util.R[1][line])+generatePart(Util.O[1][line])+generatePart(Util.C[1][line])+generatePart(Util.K[1][line])+ "xxxxx" +
+					generatePart(Util.P[1][line])+generatePart(Util.A[1][line])+generatePart(Util.P[1][line])+generatePart(Util.E[1][line])+generatePart(Util.R[1][line])+ "xxxxx" +
+					generatePart(Util.S[1][line])+generatePart(Util.C[1][line])+generatePart(Util.I[1][line])+generatePart(Util.S[1][line])+generatePart(Util.S[1][line])+
+				   	generatePart(Util.O[1][line])+generatePart(Util.R[1][line])+generatePart(Util.S[1][line])+ "\n"); 
+		}
+		return banner.toString(); 
+	}	
+	public static String generatePart(String[] letter){
+		StringBuilder sb = new StringBuilder(); 
+		for (int i = 0; i<letter.length; i++)
+			sb.append(letter[i]); 
 
-
-	public static String generateBanner(){
+		return sb.toString(); 
+	}
+	/*
+	public static String depgenerateBanner(){
 		int[] color = new int[Util.BANNERLENGTH]; 
 		StringBuilder banner = new StringBuilder();
 
@@ -126,6 +148,6 @@ public class Menu {
 					Util.O[color[14]][line] + Util.R[color[15]][line] + Util.S[color[16]][line] ); // SCISSORS
 		}
 		return banner.toString(); 
-	}
+	}*/
 }
 

@@ -5,29 +5,12 @@ public class Test {
 	private static volatile boolean shouldQuit = false; 
 
 	public static void main(String[] args) {
-		/*String banner = Menu.generateBanner(); 
-		String[] decomp = banner.split("(?=\u001B\\[0m) | (?=[# ])");
-		StringBuilder sb = new StringBuilder(); 
-		//for(String part : decomp) sb.append(part); 
-		//System.out.println(sb.toString()); 
-		if (decomp[7] == " ") System.out.println("empty"); 
-		else System.out.println("not empty: " + decomp[7]); */
-		String sstring = Util.RED+"# # "+Util.RESET + Util.GREEN+" # #"+Util.RESET; 	
-		String string = "#  #" +Util.YELLOW+"# # "+Util.RESET + Util.GREEN+" # #"+Util.RESET; 	
-		//String[] parts = string.split("(?<=[# ])|(?=[# ])"); 
-		String[] parts = Util.splitWithDelimiter(string, "(?<=#)(?= )|(?<= )(?=#)|(?<=\\033\\[0m)"); 
-		System.out.println(parts.length); 
-		int j = 0; 
-		StringBuilder sb = new StringBuilder(); 
-		for (String part : parts){
-			System.out.print(j++ + ": "); 
-			if (part.equals(" ")) System.out.print("empty"); 
-			else System.out.print(part); 	
-			System.out.print("\n"); 
-			sb.append(part); 
+		String[][][] arr = {{{"a"},{"b"},{"c"}},{{"1"},{"2"},{"3"}},{{"x"},{"y"},{"z"}}}; 
+		for (int i = 0; i<3; i++){
+			for(int j = 0; j<3; j++){
+				System.out.println(arr[i][j][0]); 	
+			}	
 		}
-		System.out.println(string); 
-		System.out.println(sb.toString());
 	}
 	public static void threadTests(){
 			Thread printThread = new Thread(() -> {
