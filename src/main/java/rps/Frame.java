@@ -2,11 +2,11 @@ package rps;
 
 public class Frame {
 		
-	public static String[][] frame = new String[37][185]; // creating a frame/board with 6845 characters and height 37 x width 185 which fits more my own monitor
+	public static String[][] frame = new String[37][220]; // creating a frame/board with 6845 characters and height 37 x width 185 which fits more my own monitor
 	
 	// clears the entire frame 
 	public void clear(){
-		frame = new String[37][185]; 	
+		frame = new String[37][220]; 	
 	}
 	// converts the two-dimensional char array frame to a string
 	public String toString(){
@@ -40,7 +40,35 @@ public class Frame {
 	}
 	// sets section horizontally in the y-th row, beginning from x, to the provided string. 
 	// Throws exception if x, y are out of bounds. Continous to write in next line if too long for current  
-	public void setSectionH (int x, int y, String setAs) throws Exception{
+	public void setSectionH (int x, int y, String string) throws Exception{
+		
+		checkIndicesInBound(x,y); 
+		System.out.println("length: " + string.length() +"\npure length: " + Util.colorlessLength(string));
+		String[] lines = string.split("\n"); 
+
+		for (int i = 0; i<lines.length; i++){
+			String[] columns = Util.splitWithDelimiter(lines[i], "[# ]");
+			int k = 0; 
+			for (String str : columns){
+				if (str.equals(" ")) System.out.println("empty"); 
+				else if (str.equals(Util.RED + " ")) System.out.println("red empty"); 
+				else if (str.equals(Util.GREEN + " ")) System.out.println("green empty"); 
+				else if (str.equals(Util.YELLOW + " ")) System.out.println("yellow empty"); 
+				else if (str.equals(" " + Util.RESET)) System.out.println("empty reset"); 
+				else if (str.equals("#")) System.out.println("white #"); 
+				else if (str.equals(Util.RED + "#")) System.out.println("red #"); 
+				else if (str.equals(Util.GREEN + "#")) System.out.println("green #"); 
+				else if (str.equals(Util.YELLOW + "#")) System.out.println("yellow #"); 
+				else if (str.equals("#" + Util.RESET)) System.out.println("# reset"); 
+				System.out.println(++k);
+				Thread.sleep(1000); 
+			} 
+			for(int j = 0; j<columns.length; j++){
+				frame[i][j] = columns[j];	
+			}
+		}
+	} 
+	public void setSectionX (int x, int y, String setAs) throws Exception{
 		checkIndicesInBound(x,y); 
 
 		// repeting code in the control flow , need to fix that but later not now 

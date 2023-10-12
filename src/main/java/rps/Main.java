@@ -26,22 +26,10 @@ public class Main {
 				//frame.setBigString(70,21,Menu.whiteConfig);
 				//frame.setBigString(79,28,Menu.whiteExit);
 				String banner = Menu.generateBanner();
-				System.out.println(banner.charAt(0)); 
 				frame.setBigString(0,0,banner); 
+				System.out.println(frame.toString()); 
 				//frame.setSectionH(0,0,Util.dividerH); // has length 185 + 5 + 4 = 194
 				//frame.setSectionH(0,0,Util.RED + Util.dividerH + Util.RESET); 
 				//frame.setSectionH(0,0, Util.RED + "#" + Util.RESET); 
-				System.out.println(frame.toString()); 
-				System.out.println(frame.frame[0][0].length());
-				System.out.println(frame.frame[0][1].length());
-				System.out.println(frame.frame[0][2].length());
-				System.out.println(frame.frame[0][3].length());
-				System.out.println(frame.frame[0][4].length());
-				System.out.println(frame.frame[0][5].length());
-				System.out.println(frame.frame[0][6].length());
-				System.out.println(frame.frame[0][7].length());
-				System.out.println(frame.frame[0][8].length());
-				System.out.println(frame.frame[0][9].length());
-				System.out.println(frame.frame[0][10].length());
 		}
 }

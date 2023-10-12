@@ -21,69 +21,394 @@ public class Util {
 	final static String WITH_DELIMITER = "((?<=%1$s)|(?=%1$s))";	
 
 	// different letters needed for constructing the menu page. each entry in the array corresponds to one line of the character. 
-	final static String[] smallWhiteH = {"#   #   ","#   #   ","#####   ","#   #   ","#   #   "};
-	final static String[] smallWhiteT = {"#####   ","  #     ","  #     ","  #     ","  #     "};
-	final static String[] smallWhiteN = {"#   #   ","##  #   ","# # #   ","#  ##   ","#   #   "};
-	final static String[] smallWhiteF = {"#####   ","#       ","###     ","#       ","#       "};
-	final static String[] smallWhiteG = {" ####   ","#       ","# ###   ","#   #   "," ####   "};
-	final static String[] smallWhiteX = {"#   #   "," # #    ","  #     "," # #    ","#   #   "};
-	final static String[] smallWhiteC = {" ###    ","#   #   ","#       ","#   #   "," ###    "}; 
-	final static String[] smallWhiteE = {"#####   ","#       ","#####   ","#       ","#####   "}; 
-	final static String[] smallWhiteI = {"#####   ","  #     ","  #     ","  #     ","#####   "}; 
-	final static String[] smallWhiteO = {" ###    ","#   #   ","#   #   ","#   #   "," ###    "}; 
-	final static String[] smallWhiteS = {" ####   ","#       "," ###    ","    #   ","####    "}; 
+	final static String[][] smallWhiteH = {
+			{"#", " ", " ", " ", "#", " ", " ", " "},
+			{"#", " ", " ", " ", "#", " ", " ", " "},
+			{"#", "#", "#", "#", "#", " ", " ", " "},
+			{"#", " ", " ", " ", "#", " ", " ", " "},
+			{"#", " ", " ", " ", "#", " ", " ", " "}};
+	final static String[][] smallWhiteT = {
+			{"#", "#", "#", "#", "#", " ", " ", " "},
+			{" ", " ", "#", " ", " ", " ", " ", " "},
+			{" ", " ", "#", " ", " ", " ", " ", " "},
+			{" ", " ", "#", " ", " ", " ", " ", " "},
+			{" ", " ", "#", " ", " ", " ", " ", " "}};
+	final static String[][] smallWhiteN = {
+			{"#", " ", " ", " ", "#", " ", " ", " "},
+			{"#", "#", " ", " ", "#", " ", " ", " "},
+			{"#", " ", "#", " ", "#", " ", " ", " "},
+			{"#", " ", " ", "#", "#", " ", " ", " "},
+			{"#", " ", " ", " ", "#", " ", " ", " "}};
+	final static String[][] smallWhiteF = {
+			{"#", "#", "#", "#", "#", " ", " ", " "},
+			{"#", " ", " ", " ", " ", " ", " ", " "},
+			{"#", "#", "#", " ", " ", " ", " ", " "},
+			{"#", " ", " ", " ", " ", " ", " ", " "},
+			{"#", " ", " ", " ", " ", " ", " ", " "}};
+	final static String[][] smallWhiteG = {
+			{" ", "#", "#", "#", "#", " ", " ", " "},
+			{"#", " ", " ", " ", " ", " ", " ", " "},
+			{"#", " ", "#", "#", "#", " ", " ", " "},
+			{"#", " ", " ", " ", "#", " ", " ", " "},
+			{" ", "#", "#", "#", "#", " ", " ", " "}};
+	final static String[][] smallWhiteX = {
+			{"#", " ", " ", " ", "#", " ", " ", " "},
+			{" ", "#", " ", "#", " ", " ", " ", " "},
+			{" ", " ", "#", " ", " ", " ", " ", " "},
+			{" ", "#", " ", "#", " ", " ", " ", " "},
+			{"#", " ", " ", " ", "#", " ", " ", " "}};
+	final static String[][] smallWhiteC = {
+			{" ", "#", "#", "#", " ", " ", " ", " "},
+			{"#", " ", " ", " ", " ", " ", " ", " "},
+			{"#", " ", " ", " ", " ", " ", " ", " "},
+			{"#", " ", " ", " ", " ", " ", " ", " "},
+			{" ", "#", "#", "#", " ", " ", " ", " "}};
+	final static String[][] smallWhiteE = {
+			{"#", "#", "#", "#", "#", " ", " ", " "},
+			{"#", " ", " ", " ", " ", " ", " ", " "},
+			{"#", "#", "#", "#", " ", " ", " ", " "},
+			{"#", " ", " ", " ", " ", " ", " ", " "},
+			{"#", "#", "#", "#", "#", " ", " ", " "}};
+	final static String[][] smallWhiteI = {
+			{"#", "#", "#", "#", "#", " ", " ", " "},
+			{" ", " ", "#", " ", " ", " ", " ", " "},
+			{" ", " ", "#", " ", " ", " ", " ", " "},
+			{" ", " ", "#", " ", " ", " ", " ", " "},
+			{"#", "#", "#", "#", "#", " ", " ", " "}};
+	final static String[][] smallWhiteO = {
+			{" ", "#", "#", "#", " ", " ", " ", " "},
+			{"#", " ", " ", " ", "#", " ", " ", " "},
+			{"#", " ", " ", " ", "#", " ", " ", " "},
+			{"#", " ", " ", " ", "#", " ", " ", " "},
+			{" ", "#", "#", "#", " ", " ", " ", " "}
+	};
+	final static String[][] smallWhiteS = {
+			{" ", "#", "#", "#", "#", " ", " ", " "},
+			{"#", " ", " ", " ", " ", " ", " ", " "},
+			{" ", "#", "#", "#", " ", " ", " ", " "},
+			{" ", " ", " ", " ", "#", " ", " ", " "},
+			{"#", "#", "#", "#", " ", " ", " ", " "}};
 
-	final static String[] smallBlueH = {BLUE+"#   #   "+RESET,BLUE+"#   #   "+RESET,BLUE+"#####   "+RESET,BLUE+"#   #   "+RESET,BLUE+"#   #   "+RESET};
-	final static String[] smallBlueT = {BLUE+"#####   "+RESET,BLUE+"  #     "+RESET,BLUE+"  #     "+RESET,BLUE+"  #     "+RESET,BLUE+"  #     "+RESET};
-	final static String[] smallBlueN = {BLUE+"#   #   "+RESET,BLUE+"##  #   "+RESET,BLUE+"# # #   "+RESET,BLUE+"#  ##   "+RESET,BLUE+"#   #   "+RESET};
-	final static String[] smallBlueF = {BLUE+"#####   "+RESET,BLUE+"#       "+RESET,BLUE+"###     "+RESET,BLUE+"#       "+RESET,BLUE+"#       "+RESET};
-	final static String[] smallBlueG = {BLUE+" ####   "+RESET,BLUE+"#       "+RESET,BLUE+"# ###   "+RESET,BLUE+"#   #   "+RESET,BLUE+" ####   "+RESET};
-	final static String[] smallBlueX = {BLUE+"#   #   "+RESET,BLUE+" # #    "+RESET,BLUE+"  #     "+RESET,BLUE+" # #    "+RESET,BLUE+"#   #   "+RESET};
-	final static String[] smallBlueC = {BLUE+" ###    "+RESET,BLUE+"#   #   "+RESET,BLUE+"#       "+RESET,BLUE+"#   #   "+RESET,BLUE+" ###    "+RESET}; 
-	final static String[] smallBlueE = {BLUE+"#####   "+RESET,BLUE+"#       "+RESET,BLUE+"#####   "+RESET,BLUE+"#       "+RESET,BLUE+"#####   "+RESET}; 
-	final static String[] smallBlueI = {BLUE+"#####   "+RESET,BLUE+"  #     "+RESET,BLUE+"  #     "+RESET,BLUE+"  #     "+RESET,BLUE+"#####   "+RESET}; 
-	final static String[] smallBlueO = {BLUE+" ###    "+RESET,BLUE+"#   #   "+RESET,BLUE+"#   #   "+RESET,BLUE+"#   #   "+RESET,BLUE+" ###    "+RESET}; 
-	final static String[] smallBlueS = {BLUE+" ####   "+RESET,BLUE+"#       "+RESET,BLUE+" ###    "+RESET,BLUE+"    #   "+RESET,BLUE+"####    "+RESET}; 
+	final static String[][] smallBlueH = {
+			{BLUE+"#"," "," "," ","#"," "," "," "," "+RESET},
+			{BLUE+"#"," "," "," ","#"," "," "," "," "+RESET},
+			{BLUE+"#","#","#","#","#"," "," "," "," "+RESET},
+			{BLUE+"#"," "," "," ","#"," "," "," "," "+RESET},
+			{BLUE+"#"," "," "," ","#"," "," "," "," "+RESET}};
+	final static String[][] smallBlueT = {
+			{BLUE+"#","#","#","#"," "," "," "," "," "+RESET},
+			{BLUE+" "," ","#"," "," "," "," "," "," "+RESET},
+			{BLUE+" "," ","#"," "," "," "," "," "," "+RESET},
+			{BLUE+" "," ","#"," "," "," "," "," "," "+RESET},
+			{BLUE+" "," ","#"," "," "," "," "," "," "+RESET}};
+	final static String[][] smallBlueN = {
+			{BLUE+"#"," "," "," ","#"," "," "," "," "+RESET},
+			{BLUE+"#","#"," "," ","#"," "," "," "," "+RESET},
+			{BLUE+"#"," ","#"," ","#"," "," "," "," "+RESET},
+			{BLUE+"#"," "," ","#","#"," "," "," "," "+RESET},
+			{BLUE+"#"," "," "," ","#"," "," "," "," "+RESET}};
+	final static String[][] smallBlueF = {
+			{BLUE+"#","#","#","#","#"," "," "," "," "+RESET},
+			{BLUE+"#"," "," "," "," "," "," "," "," "+RESET},
+			{BLUE+"#","#","#","#"," "," "," "," "," "+RESET},
+			{BLUE+"#"," "," "," "," "," "," "," "," "+RESET},
+			{BLUE+"#"," "," "," "," "," "," "," "," "+RESET}};
+	final static String[][] smallBlueG = {
+			{BLUE+" ","#","#","#","#"," "," "," "," "+RESET},
+			{BLUE+"#"," "," "," ",""," "," "," "," "+RESET},
+			{BLUE+"#"," ","#","#","#"," "," "," "," "+RESET},
+			{BLUE+"#"," "," "," ","#"," "," "," "," "+RESET},
+			{BLUE+"#","#","#","#","#"," "," "," "," "+RESET}};
+	final static String[][] smallBlueX = {
+			{BLUE+"#"," "," "," ","#"," "," "," "," "+RESET},
+			{BLUE+" ","#"," ","#"," "," "," "," "," "+RESET},
+			{BLUE+" "," ","#"," "," "," "," "," "," "+RESET},
+			{BLUE+" ","#"," ","#"," "," "," "," "," "+RESET},
+			{BLUE+"#"," "," "," ","#"," "," "," "," "+RESET}};
+	final static String[][] smallBlueC = {
+			{BLUE+" ","#","#","#"," "," "," "," "," "+RESET},
+			{BLUE+"#"," "," "," "," "," "," "," "," "+RESET},
+			{BLUE+"#"," "," "," "," "," "," "," "," "+RESET},
+			{BLUE+"#"," "," "," "," "," "," "," "," "+RESET},
+			{BLUE+" ","#","#","#"," "," "," "," "," "+RESET}};
+	final static String[][] smallBlueE = {
+			{BLUE+"#","#","#","#","#"," "," "," "," "+RESET},
+			{BLUE+"#"," "," "," "," "," "," "," "," "+RESET},
+			{BLUE+"#","#","#","#"," "," "," "," "," "+RESET},
+			{BLUE+"#"," "," "," "," "," "," "," "," "+RESET},
+			{BLUE+"#","#","#","#","#"," "," "," "," "+RESET}};
+	final static String[][] smallBlueI = {
+			{BLUE+"#","#","#","#","#"," "," "," "," "+RESET},
+			{BLUE+" "," ","#"," "," "," "," "," "," "+RESET},
+			{BLUE+" "," ","#"," "," "," "," "," "," "+RESET},
+			{BLUE+" "," ","#"," "," "," "," "," "," "+RESET},
+			{BLUE+"#","#","#","#","#"," "," "," "," "+RESET}};
+	final static String[][] smallBlueO = {
+			{BLUE+" ","#","#","#"," "," "," "," "," "+RESET},
+			{BLUE+"#"," "," "," ","#"," "," "," "," "+RESET},
+			{BLUE+"#"," "," "," ","#"," "," "," "," "+RESET},
+			{BLUE+"#"," "," "," ","#"," "," "," "," "+RESET},
+			{BLUE+" ","#","#","#"," "," "," "," "," "+RESET}};
+	final static String[][] smallBlueS = {
+			{BLUE+" ","#","#","#","#"," "," "," "," "+RESET},
+			{BLUE+"#"," "," "," "," "," "," "," "," "+RESET},
+			{BLUE+" ","#","#","#"," "," "," "," "," "+RESET},
+			{BLUE+" "," "," "," ","#"," "," "," "," "+RESET},
+			{BLUE+"#","#","#","#"," "," "," "," "," "+RESET}};
 
-	final static String[] whiteR = {"#######   ","#      #  ","#      #  ","#      #  ","#######   ","#    #    ","#     #   ","#      #  "}; 
-	final static String[] whiteO = {" #####    ","#     #   ","#     #   ","#     #   ","#     #   ","#     #   ","#     #   "," #####    "}; 
-	final static String[] whiteC = {" ######   ","#     #   ","#     #   ","#         ","#         ","#     #   ","#     #   "," ######   "};
-	final static String[] whiteK = {"#     #   ","#    #    ","#   #     ","#  #      ","# ###     ","#    #    ","#     #   ","#     #   "};
-	final static String[] whiteP = {"#######   ","#      #  ","#      #  ","#      #  ","#######   ","#         ","#         ","#         "};
-	final static String[] whiteA = {" #####    ","#     #   ","#     #   ","#     #   ","#######   ","#     #   ","#     #   ","#     #   "};
-	final static String[] whiteE = {"#######   ","#         ","#         ","#         ","#######   ","#         ","#         ","#######   "};
-	final static String[] whiteS = {" #####    ","#         ","#         "," #####    ","      #   ","      #   ","      #   ","######    "};
-	final static String[] whiteI = {"#######   ","   #      ","   #      ","   #      ","   #      ","   #      ","   #      ","#######   "};
+	final static String[] whiteR = {{"#######   "},{"#      #  "},{"#      #  "},{"#      #  "},{"#######   "},{"#    #    "},{"#     #   "},{"#      #  "}}; 
+	final static String[] whiteO = {{" #####    "},{"#     #   "},{"#     #   "},{"#     #   "},{"#     #   "},{"#     #   "},{"#     #   "},{" #####    "}}; 
+	final static String[] whiteC = {{" ######   "},{"#     #   "},{"#     #   "},{"#         "},{"#         "},{"#     #   "},{"#     #   "},{" ######   "}};
+	final static String[] whiteK = {{"#     #   "},{"#    #    "},{"#   #     "},{"#  #      "},{"# ###     "},{"#    #    "},{"#     #   "},{"#     #   "}};
+	final static String[] whiteP = {{"#######   "},{"#      #  "},{"#      #  "},{"#      #  "},{"#######   "},{"#         "},{"#         "},"#         "}};
+	final static String[] whiteA = {{" #####    "},{"#     #   "},{"#     #   "},{"#     #   "},{"#######   "},{"#     #   "},{"#     #   "},{"#     #   "}};
+	final static String[] whiteE = {{"#######   "},{"#         "},{"#         "},{"#         "},{"#######   "},{"#         "},{"#         "},{"#######   "}};
+	final static String[] whiteS = {{" #####    "},{"#         "},{"#         "},{" #####    "},{"      #   "},{"      #   "},{"      #   "},{"######    "}};
+	final static String[] whiteI = {{"#######   "},{"   #      "},{"   #      "},{"   #      "},{"   #      "},{"   #      "},{"   #      "},{"#######   "}};
 
-	final static String[] redR = {RED+"#######   "+RESET,RED+"#      #  "+RESET,RED+"#      #  "+RESET,RED+"#      #  "+RESET,RED+"#######   "+RESET,RED+"#    #    "+RESET,RED+"#     #   "+RESET,RED+"#      #  "+RESET}; 
-	final static String[] redO = {RED+" #####    "+RESET,RED+"#     #   "+RESET,RED+"#     #   "+RESET,RED+"#     #   "+RESET,RED+"#     #   "+RESET,RED+"#     #   "+RESET,RED+"#     #   "+RESET,RED+" #####    "+RESET}; 
-	final static String[] redC = {RED+" ######   "+RESET,RED+"#     #   "+RESET,RED+"#     #   "+RESET,RED+"#         "+RESET,RED+"#         "+RESET,RED+"#     #   "+RESET,RED+"#     #   "+RESET,RED+" ######   "+RESET};
-	final static String[] redK = {RED+"#     #   "+RESET,RED+"#    #    "+RESET,RED+"#   #     "+RESET,RED+"#  #      "+RESET,RED+"# ###     "+RESET,RED+"#    #    "+RESET,RED+"#     #   "+RESET,RED+"#     #   "+RESET};
-	final static String[] redP = {RED+"#######   "+RESET,RED+"#      #  "+RESET,RED+"#      #  "+RESET,RED+"#      #  "+RESET,RED+"#######   "+RESET,RED+"#         "+RESET,RED+"#         "+RESET,RED+"#         "+RESET};
-	final static String[] redA = {RED+" #####    "+RESET,RED+"#     #   "+RESET,RED+"#     #   "+RESET,RED+"#     #   "+RESET,RED+"#######   "+RESET,RED+"#     #   "+RESET,RED+"#     #   "+RESET,RED+"#     #   "+RESET};
-	final static String[] redE = {RED+"#######   "+RESET,RED+"#         "+RESET,RED+"#         "+RESET,RED+"#         "+RESET,RED+"#######   "+RESET,RED+"#         "+RESET,RED+"#         "+RESET,RED+"#######   "+RESET};
-	final static String[] redS = {RED+" #####    "+RESET,RED+"#         "+RESET,RED+"#         "+RESET,RED+" #####    "+RESET,RED+"      #   "+RESET,RED+"      #   "+RESET,RED+"      #   "+RESET,RED+"######    "+RESET};
-	final static String[] redI = {RED+"#######   "+RESET,RED+"   #      "+RESET,RED+"   #      "+RESET,RED+"   #      "+RESET,RED+"   #      "+RESET,RED+"   #      "+RESET,RED+"   #      "+RESET,RED+"#######   "+RESET};
+	final static String[] redR = {
+			{RED+"#","#","#","#","#","#","#"," "," "," "+RESET},
+			{RED+"#"," "," "," "," "," "," ","#"," "," "+RESET},
+			{RED+"#"," "," "," "," "," "," ","#"," "," "+RESET},
+			{RED+"#"," "," "," "," "," "," ","#"," "," "+RESET},
+			{RED+"#","#","#","#","#","#","#"," "," "," "+RESET},
+			{RED+"#"," "," "," "," ","#"," "," "," "," "+RESET},
+			{RED+"#"," "," "," "," "," ","#"," "," "," "+RESET},
+			{RED+"#"," "," "," "," "," "," ","#"," "," "+RESET}}; 
+	final static String[] redO = {
+			{RED+" ","#","#","#","#","#"," "," "," "," "+RESET},
+			{RED+"#"," "," "," "," "," ","#"," "," "," "+RESET},
+			{RED+"#"," "," "," "," "," ","#"," "," "," "+RESET},
+			{RED+"#"," "," "," "," "," ","#"," "," "," "+RESET},
+			{RED+"#"," "," "," "," "," ","#"," "," "," "+RESET},
+			{RED+"#"," "," "," "," "," ","#"," "," "," "+RESET},
+			{RED+"#"," "," "," "," "," ","#"," "," "," "+RESET},
+			{RED+" ","#","#","#","#","#"," "," "," "," "+RESET}}; 
+	final static String[] redC = {
+			{RED+" ","#","#","#","#","#","#"," "," "," "+RESET},
+			{RED+"#"," "," "," "," "," ","#"," "," "," "+RESET},
+			{RED+"#"," "," "," "," "," ","#"," "," "," "+RESET},
+			{RED+"#"," "," "," "," "," "," "," "," "," "+RESET},
+			{RED+"#"," "," "," "," "," "," "," "," "," "+RESET},
+			{RED+"#"," "," "," "," "," ","#"," "," "," "+RESET},
+			{RED+"#"," "," "," "," "," ",""," "," "," "+RESET},
+			{RED+" ","#","#","#","#","#","#"," "," "," "+RESET}};
+	final static String[] redK = {
+			{RED+"#"," "," "," "," "," ","#"," "," "," "+RESET},
+			{RED+"#"," "," "," "," ","#"," "," "," "," "+RESET},
+			{RED+"#"," "," "," ","#"," "," "," "," "," "+RESET},
+			{RED+"#"," "," ","#"," "," "," "," "," "," "+RESET},
+			{RED+"#"," ","#","#","#"," "," "," "," "," "+RESET},
+			{RED+"#"," "," "," "," ","#"," "," "," "," "+RESET},
+			{RED+"#"," "," "," "," "," ","#"," "," "," "+RESET},
+			{RED+"#"," "," "," "," "," ","#"," "," "," "+RESET}};
+	final static String[] redP = {
+			{RED+"#","#","#","#","#","#","#"," "," "," "+RESET},
+			{RED+"#"," "," "," "," "," "," ","#"," "," "+RESET},
+			{RED+"#"," "," "," "," "," "," ","#"," "," "+RESET},
+			{RED+"#"," "," "," "," "," "," ","#"," "," "+RESET},
+			{RED+"#","#","#","#","#","#","#"," "," "," "+RESET},
+			{RED+"#"," "," "," "," "," "," "," "," "," "+RESET},
+			{RED+"#"," "," "," "," "," "," "," "," "," "+RESET},
+			{RED+"#"," "," "," "," "," "," "," "," "," "+RESET},
+	final static String[] redA = {
+			{RED+" ","#","#","#","#","#"," "," "," "," "+RESET},
+			{RED+"#"," "," "," "," "," ","#"," "," "," "+RESET},
+			{RED+"#"," "," "," "," "," ","#"," "," "," "+RESET},
+			{RED+"#","#","#","#","#","#","#"," "," "," "+RESET},
+			{RED+"#"," "," "," "," "," ","#"," "," "," "+RESET},
+			{RED+"#"," "," "," "," "," ","#"," "," "," "+RESET},
+			{RED+"#"," "," "," "," "," ","#"," "," "," "+RESET}};
+	final static String[] redE = {
+			{RED+"#","#","#","#","#","#"," "," "," "," "+RESET},
+			{RED+"#"," "," "," "," "," "," "," "," "," "+RESET},
+			{RED+"#"," "," "," "," "," "," "," "," "," "+RESET},
+			{RED+"#","#","#","#","#","#"," "," "," "," "+RESET},
+			{RED+"#"," "," "," "," "," "," "," "," "," "+RESET},
+			{RED+"#"," "," "," "," "," "," "," "," "," "+RESET},
+			{RED+"#","#","#","#","#","#","#"," "," "," "+RESET}};
+	final static String[] redS = {
+			{RED+" ","#","#","#","#","#"," "," "," "," "+RESET},
+			{RED+"#"," "," "," "," "," "," "," "," "," "+RESET},
+			{RED+"#"," "," "," "," "," "," "," "," "," "+RESET},
+			{RED+" ","#","#","#","#","#"," "," "," "," "+RESET},
+			{RED+" "," "," "," "," "," ","#"," "," "," "+RESET},
+			{RED+" "," "," "," "," "," ","#"," "," "," "+RESET},
+			{RED+" "," "," "," "," "," ","#"," "," "," "+RESET},
+			{RED+"#","#","#","#","#","#"," "," "," "," "+RESET}};
+	final static String[] redI = {
+			{RED+"#","#","#","#","#","#","#"," "," "," "+RESET},
+			{RED+" "," "," ","#"," "," "," "," "," "," "+RESET},
+			{RED+" "," "," ","#"," "," "," "," "," "," "+RESET},
+			{RED+" "," "," ","#"," "," "," "," "," "," "+RESET},
+			{RED+" "," "," ","#"," "," "," "," "," "," "+RESET},
+			{RED+" "," "," ","#"," "," "," "," "," "," "+RESET},
+			{RED+" "," "," ","#"," "," "," "," "," "," "+RESET},
+			{RED+"#","#","#","#","#","#","#"," "," "," "+RESET}};
 
-	final static String[] yellowR = {YELLOW+"#######   "+RESET,YELLOW+"#      #  "+RESET,YELLOW+"#      #  "+RESET,YELLOW+"#      #  "+RESET,YELLOW+"#######   "+RESET,YELLOW+"#    #    "+RESET,YELLOW+"#     #   "+RESET,YELLOW+"#      #  "+RESET}; 
-	final static String[] yellowO = {YELLOW+" #####    "+RESET,YELLOW+"#     #   "+RESET,YELLOW+"#     #   "+RESET,YELLOW+"#     #   "+RESET,YELLOW+"#     #   "+RESET,YELLOW+"#     #   "+RESET,YELLOW+"#     #   "+RESET,YELLOW+" #####    "+RESET}; 
-	final static String[] yellowC = {YELLOW+" ######   "+RESET,YELLOW+"#     #   "+RESET,YELLOW+"#     #   "+RESET,YELLOW+"#         "+RESET,YELLOW+"#         "+RESET,YELLOW+"#     #   "+RESET,YELLOW+"#     #   "+RESET,YELLOW+" ######   "+RESET};
-	final static String[] yellowK = {YELLOW+"#     #   "+RESET,YELLOW+"#    #    "+RESET,YELLOW+"#   #     "+RESET,YELLOW+"#  #      "+RESET,YELLOW+"# ###     "+RESET,YELLOW+"#    #    "+RESET,YELLOW+"#     #   "+RESET,YELLOW+"#     #   "+RESET};
-	final static String[] yellowP = {YELLOW+"#######   "+RESET,YELLOW+"#      #  "+RESET,YELLOW+"#      #  "+RESET,YELLOW+"#      #  "+RESET,YELLOW+"#######   "+RESET,YELLOW+"#         "+RESET,YELLOW+"#         "+RESET,YELLOW+"#         "+RESET};
-	final static String[] yellowA = {YELLOW+" #####    "+RESET,YELLOW+"#     #   "+RESET,YELLOW+"#     #   "+RESET,YELLOW+"#     #   "+RESET,YELLOW+"#######   "+RESET,YELLOW+"#     #   "+RESET,YELLOW+"#     #   "+RESET,YELLOW+"#     #   "+RESET};
-	final static String[] yellowE = {YELLOW+"#######   "+RESET,YELLOW+"#         "+RESET,YELLOW+"#         "+RESET,YELLOW+"#         "+RESET,YELLOW+"#######   "+RESET,YELLOW+"#         "+RESET,YELLOW+"#         "+RESET,YELLOW+"#######   "+RESET};
-	final static String[] yellowS = {YELLOW+" #####    "+RESET,YELLOW+"#         "+RESET,YELLOW+"#         "+RESET,YELLOW+" #####    "+RESET,YELLOW+"      #   "+RESET,YELLOW+"      #   "+RESET,YELLOW+"      #   "+RESET,YELLOW+"######    "+RESET};
-	final static String[] yellowI = {YELLOW+"#######   "+RESET,YELLOW+"   #      "+RESET,YELLOW+"   #      "+RESET,YELLOW+"   #      "+RESET,YELLOW+"   #      "+RESET,YELLOW+"   #      "+RESET,YELLOW+"   #      "+RESET,YELLOW+"#######   "+RESET};
+	final static String[] yellowR = {
+			{YELLOW+"#","#","#","#","#","#","#"," "," "," "+RESET},
+			{YELLOW+"#"," "," "," "," "," "," ","#"," "," "+RESET},
+			{YELLOW+"#"," "," "," "," "," "," ","#"," "," "+RESET},
+			{YELLOW+"#"," "," "," "," "," "," ","#"," "," "+RESET},
+			{YELLOW+"#","#","#","#","#","#","#"," "," "," "+RESET},
+			{YELLOW+"#"," "," "," "," ","#"," "," "," "," "+RESET},
+			{YELLOW+"#"," "," "," "," "," ","#"," "," "," "+RESET},
+			{YELLOW+"#"," "," "," "," "," "," ","#"," "," "+RESET}}; 
+	final static String[] yellowO = {
+			{YELLOW+" #####    "+RESET},
+			{YELLOW+" ","#","#","#","#","#"," "," "," "," "+RESET},
+			{YELLOW+"#"," "," "," "," "," ","#"," "," "," "+RESET},
+			{YELLOW+"#"," "," "," "," "," ","#"," "," "," "+RESET},
+			{YELLOW+"#"," "," "," "," "," ","#"," "," "," "+RESET},
+			{YELLOW+"#"," "," "," "," "," ","#"," "," "," "+RESET},
+			{YELLOW+"#"," "," "," "," "," ","#"," "," "," "+RESET},
+			{YELLOW+"#"," "," "," "," "," ","#"," "," "," "+RESET},
+			{YELLOW+" ","#","#","#","#","#"," "," "," "," "+RESET}; 
+	final static String[] yellowC = {
+			{YELLOW+" ","#","#","#","#","#","#"," "," "," "+RESET},
+			{YELLOW+"#"," "," "," "," "," ","#"," "," "," "+RESET},
+			{YELLOW+"#"," "," "," "," "," "," "," "," "," "+RESET},
+			{YELLOW+"#"," "," "," "," "," "," "," "," "," "+RESET},
+			{YELLOW+"#"," "," "," "," "," ","#"," "," "," "+RESET},
+			{YELLOW+"#"," "," "," "," "," ","#"," "," "," "+RESET},
+			{YELLOW+" ","#","#","#","#","#","#"," "," "," "+RESET}};
+	final static String[] yellowK = {
+			{YELLOW+"#"," "," "," "," "," ","#"," "," "," "+RESET},
+			{YELLOW+"#"," "," "," "," ","#"," "," "," "," "+RESET},
+			{YELLOW+"#"," "," "," ","#"," "," "," "," "," "+RESET},
+			{YELLOW+"#"," "," ","#"," "," "," "," "," "," "+RESET},
+			{YELLOW+"#"," ","#","#","#"," "," "," "," "," "+RESET},
+			{YELLOW+"#"," "," "," "," ","#"," "," "," "," "+RESET},
+			{YELLOW+"#"," "," "," "," "," ","#"," "," "," "+RESET},
+			{YELLOW+"#"," "," "," "," "," ","#"," "," "," "+RESET}};
+	final static String[] yellowP = {
+			{YELLOW+"#","#","#","#","#","#","#"," "," "," "+RESET},
+			{YELLOW+"#"," "," "," "," "," "," ","#"," "," "+RESET},
+			{YELLOW+"#"," "," "," "," "," "," ","#"," "," "+RESET},
+			{YELLOW+"#"," "," "," "," "," "," ","#"," "," "+RESET},
+			{YELLOW+"#","#","#","#","#","#","#"," "," "," "+RESET},
+			{YELLOW+"#"," "," "," "," "," "," "," "," "," "+RESET},
+			{YELLOW+"#"," "," "," "," "," "," "," "," "," "+RESET},
+			{YELLOW+"#"," "," "," "," "," "," "," "," "," "+RESET},
+	final static String[] yellowA = {
+			{YELLOW+" ","#","#","#","#","#"," "," "," "," "+RESET},
+			{YELLOW+"#"," "," "," "," "," ","#"," "," "," "+RESET},
+			{YELLOW+"#"," "," "," "," "," ","#"," "," "," "+RESET},
+			{YELLOW+"#"," "," "," "," "," ","#"," "," "," "+RESET},
+			{YELLOW+"#","#","#","#","#","#","#"," "," "," "+RESET},
+			{YELLOW+"#"," "," "," "," "," ","#"," "," "," "+RESET},
+			{YELLOW+"#"," "," "," "," "," ","#"," "," "," "+RESET},
+			{YELLOW+"#"," "," "," "," "," ","#"," "," "," "+RESET}};
+	final static String[] yellowE = {
+			{YELLOW+"#","#","#","#","#","#","#"," "," "," "+RESET},
+			{YELLOW+"#"," "," "," "," "," "," "," "," "," "+RESET},
+			{YELLOW+"#"," "," "," "," "," "," "," "," "," "+RESET},
+			{YELLOW+"#"," "," "," "," "," "," "," "," "," "+RESET},
+			{YELLOW+"#","#","#","#","#","#"," "," "," "," "+RESET},
+			{YELLOW+"#"," "," "," "," "," "," "," "," "," "+RESET},
+			{YELLOW+"#"," "," "," "," "," "," "," "," "," "+RESET},
+			{YELLOW+"#","#","#","#","#","#","#"," "," "," "+RESET}};
+	final static String[] yellowS = {
+			{YELLOW+" ","#","#","#","#","#"," "," "," "," "+RESET},
+			{YELLOW+"#"," "," "," "," "," "," "," "," "," "+RESET},
+			{YELLOW+"#"," "," "," "," "," "," "," "," "," "+RESET},
+			{YELLOW+" ","#","#","#","#","#"," "," "," "," "+RESET},
+			{YELLOW+" "," "," "," "," "," ","#"," "," "," "+RESET},
+			{YELLOW+" "," "," "," "," "," ","#"," "," "," "+RESET},
+			{YELLOW+" "," "," "," "," "," ","#"," "," "," "+RESET},
+			{YELLOW+"#","#","#","#","#","#"," "," "," "," "+RESET}};
+	final static String[] yellowI = {
+			{YELLOW+"#","#","#","#","#","#","#"," "," "," "+RESET},
+			{YELLOW+" "," "," ","#"," "," "," "," "," "," "+RESET},
+			{YELLOW+" "," "," ","#"," "," "," "," "," "," "+RESET},
+			{YELLOW+" "," "," ","#"," "," "," "," "," "," "+RESET},
+			{YELLOW+" "," "," ","#"," "," "," "," "," "," "+RESET},
+			{YELLOW+" "," "," ","#"," "," "," "," "," "," "+RESET},
+			{YELLOW+" "," "," ","#"," "," "," "," "," "," "+RESET},
+			{YELLOW+"#","#","#","#","#","#","#"," "," "," "+RESET}};
 
-	final static String[] greenR = {GREEN+"#######   "+RESET,GREEN+"#      #  "+RESET,GREEN+"#      #  "+RESET,GREEN+"#      #  "+RESET,GREEN+"#######   "+RESET,GREEN+"#    #    "+RESET,GREEN+"#     #   "+RESET,GREEN+"#      #  "+RESET}; 
-	final static String[] greenO = {GREEN+" #####    "+RESET,GREEN+"#     #   "+RESET,GREEN+"#     #   "+RESET,GREEN+"#     #   "+RESET,GREEN+"#     #   "+RESET,GREEN+"#     #   "+RESET,GREEN+"#     #   "+RESET,GREEN+" #####    "+RESET}; 
-	final static String[] greenC = {GREEN+" ######   "+RESET,GREEN+"#     #   "+RESET,GREEN+"#     #   "+RESET,GREEN+"#         "+RESET,GREEN+"#         "+RESET,GREEN+"#     #   "+RESET,GREEN+"#     #   "+RESET,GREEN+" ######   "+RESET};
-	final static String[] greenK = {GREEN+"#     #   "+RESET,GREEN+"#    #    "+RESET,GREEN+"#   #     "+RESET,GREEN+"#  #      "+RESET,GREEN+"# ###     "+RESET,GREEN+"#    #    "+RESET,GREEN+"#     #   "+RESET,GREEN+"#     #   "+RESET};
-	final static String[] greenP = {GREEN+"#######   "+RESET,GREEN+"#      #  "+RESET,GREEN+"#      #  "+RESET,GREEN+"#      #  "+RESET,GREEN+"#######   "+RESET,GREEN+"#         "+RESET,GREEN+"#         "+RESET,GREEN+"#         "+RESET};
-	final static String[] greenA = {GREEN+" #####    "+RESET,GREEN+"#     #   "+RESET,GREEN+"#     #   "+RESET,GREEN+"#     #   "+RESET,GREEN+"#######   "+RESET,GREEN+"#     #   "+RESET,GREEN+"#     #   "+RESET,GREEN+"#     #   "+RESET};
-	final static String[] greenE = {GREEN+"#######   "+RESET,GREEN+"#         "+RESET,GREEN+"#         "+RESET,GREEN+"#         "+RESET,GREEN+"#######   "+RESET,GREEN+"#         "+RESET,GREEN+"#         "+RESET,GREEN+"#######   "+RESET};
-	final static String[] greenS = {GREEN+" #####    "+RESET,GREEN+"#         "+RESET,GREEN+"#         "+RESET,GREEN+" #####    "+RESET,GREEN+"      #   "+RESET,GREEN+"      #   "+RESET,GREEN+"      #   "+RESET,GREEN+"######    "+RESET};
-	final static String[] greenI = {GREEN+"#######   "+RESET,GREEN+"   #      "+RESET,GREEN+"   #      "+RESET,GREEN+"   #      "+RESET,GREEN+"   #      "+RESET,GREEN+"   #      "+RESET,GREEN+"   #      "+RESET,GREEN+"#######   "+RESET};
+	final static String[] greenR = {
+			{GREEN+"#","#","#","#","#","#","#"," "," "," "+RESET},
+			{GREEN+"#"," "," "," "," "," "," ","#"," "," "+RESET}, 
+			{GREEN+"#"," "," "," "," "," "," ","#"," "," "+RESET}, 
+			{GREEN+"#"," "," "," "," "," "," ","#"," "," "+RESET}, 
+			{GREEN+"#","#","#","#","#","#","#"," "," "," "+RESET},
+			{GREEN+"#"," "," "," "," ","#"," "," "," "," "+RESET},
+			{GREEN+"#"," "," "," "," "," ","#"," "," "," "+RESET},
+			{GREEN+"#"," "," "," "," "," "," ","#"," "," "+RESET}}; 
+	final static String[] greenO = {
+			{GREEN+" ","#","#","#","#","#"," "," "," "," "+RESET},
+			{GREEN+"#"," "," "," "," "," ","#"," "," "," "+RESET},
+			{GREEN+"#"," "," "," "," "," ","#"," "," "," "+RESET},
+			{GREEN+"#"," "," "," "," "," ","#"," "," "," "+RESET},
+			{GREEN+"#"," "," "," "," "," ","#"," "," "," "+RESET},
+			{GREEN+"#"," "," "," "," "," ","#"," "," "," "+RESET},
+			{GREEN+"#"," "," "," "," "," ","#"," "," "," "+RESET},
+			{GREEN+" ","#","#","#","#","#"," "," "," "," "+RESET},
+	final static String[] greenC = {
+			{GREEN+" ","#","#","#","#","#","#"," "," "," "+RESET},
+			{GREEN+"#"," "," "," "," "," ","#"," "," "," "+RESET},
+			{GREEN+"#"," "," "," "," "," ","#"," "," "," "+RESET},
+			{GREEN+"#"," "," "," "," "," "," "," "," "," "+RESET},
+			{GREEN+"#"," "," "," "," "," "," "," "," "," "+RESET},
+			{GREEN+"#"," "," "," "," "," ","#"," "," "," "+RESET},
+			{GREEN+"#"," "," "," "," "," ","#"," "," "," "+RESET},
+			{GREEN+" ","#","#","#","#","#","#"," "," "," "+RESET}};
+	final static String[] greenK = {
+			{GREEN+"#"," "," "," "," "," ","#"," "," "," "+RESET},
+			{GREEN+"#"," "," "," "," ","#"," "," "," "," "+RESET},
+			{GREEN+"#"," "," "," ","#"," "," "," "," "," "+RESET},
+			{GREEN+"#"," "," ","#"," "," "," "," "," "," "+RESET},
+			{GREEN+"#"," ","#","#","#"," "," "," "," "," "+RESET},
+			{GREEN+"#"," "," "," "," ","#"," "," "," "," "+RESET},
+			{GREEN+"#"," "," "," "," "," ","#"," "," "," "+RESET},
+			{GREEN+"#"," "," "," "," "," ","#"," "," "," "+RESET},
+	final static String[] greenP = {
+			{GREEN+"#","#","#","#","#","#","#"," "," "," "+RESET},
+			{GREEN+"#"," "," "," "," "," "," ","#"," "," "+RESET},
+			{GREEN+"#"," "," "," "," "," "," ","#"," "," "+RESET},
+			{GREEN+"#"," "," "," "," "," "," ","#"," "," "+RESET},
+			{GREEN+"#","#","#","#","#","#","#"," "," "," "+RESET},
+			{GREEN+"#"," "," "," "," "," "," "," "," "," "+RESET},
+			{GREEN+"#"," "," "," "," "," "," "," "," "," "+RESET},
+			{GREEN+"#"," "," "," "," "," "," "," "," "," "+RESET}};
+	final static String[] greenA = {
+			{GREEN+" ","#","#","#","#","#"," "," "," "," "+RESET},
+			{GREEN+"#"," "," "," "," "," ","#"," "," "," "+RESET},
+			{GREEN+"#"," "," "," "," "," ","#"," "," "," "+RESET},
+			{GREEN+"#"," "," "," "," "," ","#"," "," "," "+RESET},
+			{GREEN+"#","#","#","#","#","#","#"," "," "," "+RESET},
+			{GREEN+"#"," "," "," "," "," ","#"," "," "," "+RESET},
+			{GREEN+"#"," "," "," "," "," ","#"," "," "," "+RESET},
+			{GREEN+"#"," "," "," "," "," ","#"," "," "," "+RESET}};
+	final static String[] greenE = {
+			{GREEN+"#","#","#","#","#","#","#"," "," "," "+RESET},
+			{GREEN+"#"," "," "," "," "," "," "," "," "," "+RESET},
+			{GREEN+"#"," "," "," "," "," "," "," "," "," "+RESET},
+			{GREEN+"#"," "," "," "," "," "," "," "," "," "+RESET},
+			{GREEN+"#","#","#","#","#","#"," "," "," "," "+RESET},
+			{GREEN+"#"," "," "," "," "," "," "," "," "," "+RESET},
+			{GREEN+"#"," "," "," "," "," "," "," "," "," "+RESET},
+			{GREEN+"#","#","#","#","#","#","#"," "," "," "+RESET}};
+	final static String[] greenS = {
+			{GREEN+" ","#","#","#","#","#"," "," "," "," "+RESET},
+			{GREEN+"#"," "," "," "," "," ","#"," "," "," "+RESET},
+			{GREEN+"#"," "," "," "," "," ","#"," "," "," "+RESET},
+			{GREEN+" ","#","#","#","#","#"," "," "," "," "+RESET},
+			{GREEN+" "," "," "," "," "," ","#"," "," "," "+RESET},
+			{GREEN+" "," "," "," "," "," ","#"," "," "," "+RESET},
+			{GREEN+" "," "," "," "," "," ","#"," "," "," "+RESET},
+			{GREEN+"#","#","#","#","#","#"," "," "," "," "+RESET}};
+	final static String[] greenI = {
+			{GREEN+"#","#","#","#","#","#","#"," "," "," "+RESET},
+			{GREEN+" "," "," ","#"," "," "," "," "," "," "+RESET},
+			{GREEN+" "," "," ","#"," "," "," "," "," "," "+RESET},
+			{GREEN+" "," "," ","#"," "," "," "," "," "," "+RESET},
+			{GREEN+" "," "," ","#"," "," "," "," "," "," "+RESET},
+			{GREEN+" "," "," ","#"," "," "," "," "," "," "+RESET},
+			{GREEN+" "," "," ","#"," "," "," "," "," "," "+RESET},
+			{GREEN+"#","#","#","#","#","#","#"," "," "," "+RESET}};
 
 	// each array hold all three different colors a normal sized letter for the banner can have so that the color of the letter can later on be randomly decided by accessing the index with randomInt	
 	final static String[][] R = {whiteR, redR, yellowR, greenR};

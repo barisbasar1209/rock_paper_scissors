@@ -12,15 +12,22 @@ public class Test {
 		//System.out.println(sb.toString()); 
 		if (decomp[7] == " ") System.out.println("empty"); 
 		else System.out.println("not empty: " + decomp[7]); */
-		String string = Util.RED+"# # "+Util.RESET + Util.GREEN+" # #"+Util.RESET; 	
+		String sstring = Util.RED+"# # "+Util.RESET + Util.GREEN+" # #"+Util.RESET; 	
+		String string = "#  #" +Util.YELLOW+"# # "+Util.RESET + Util.GREEN+" # #"+Util.RESET; 	
 		//String[] parts = string.split("(?<=[# ])|(?=[# ])"); 
-		String[] parts = Util.splitWithDelimiter(string, "[# ]"); 
+		String[] parts = Util.splitWithDelimiter(string, "(?<=#)(?= )|(?<= )(?=#)|(?<=\\033\\[0m)"); 
 		System.out.println(parts.length); 
+		int j = 0; 
+		StringBuilder sb = new StringBuilder(); 
 		for (String part : parts){
+			System.out.print(j++ + ": "); 
 			if (part.equals(" ")) System.out.print("empty"); 
 			else System.out.print(part); 	
+			System.out.print("\n"); 
+			sb.append(part); 
 		}
-		System.out.print("\n"); 
+		System.out.println(string); 
+		System.out.println(sb.toString());
 	}
 	public static void threadTests(){
 			Thread printThread = new Thread(() -> {
