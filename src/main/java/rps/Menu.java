@@ -113,12 +113,19 @@ public class Menu {
 		System.out.println(Util.C[1][7].length); 
 		Thread.sleep(2500); 
 		for (int line = 0; line < 8; line++){
-				System.out.println("line: "+line); 
-				banner.append(
-					generatePart(Util.R[1][line])+generatePart(Util.O[1][line])+generatePart(Util.C[1][line])+generatePart(Util.K[1][line])+ "xxxxx" +
-					generatePart(Util.P[1][line])+generatePart(Util.A[1][line])+generatePart(Util.P[1][line])+generatePart(Util.E[1][line])+generatePart(Util.R[1][line])+ "xxxxx" +
-					generatePart(Util.S[1][line])+generatePart(Util.C[1][line])+generatePart(Util.I[1][line])+generatePart(Util.S[1][line])+generatePart(Util.S[1][line])+
-				   	generatePart(Util.O[1][line])+generatePart(Util.R[1][line])+generatePart(Util.S[1][line])+ "\n"); 
+			System.out.println("line: "+line); 
+			banner.append(
+				generatePart(Util.R[1][line])+generatePart(Util.O[1][line])+generatePart(Util.C[1][line])+generatePart(Util.K[1][line])+ "xxxxx" );
+			banner.append(generatePart(Util.P[1][line])); 
+			System.out.println(Util.P[1].length); 
+			banner.append(generatePart(Util.P[1][line])); 
+			System.out.println(Util.A[1].length); 
+			Thread.sleep(1000); 
+			banner.append(generatePart(Util.A[1][line])); 
+			banner.append(generatePart(Util.P[1][line])+generatePart(Util.E[1][line])+generatePart(Util.R[1][line])+ "xxxxx" ); 
+			banner.append(generatePart(Util.S[1][line])+generatePart(Util.C[1][line])); 
+		    banner.append(generatePart(Util.I[1][line])+generatePart(Util.S[1][line])+generatePart(Util.S[1][line])); 
+			banner.append(generatePart(Util.O[1][line])+generatePart(Util.R[1][line])+generatePart(Util.S[1][line])+ "\n"); 
 		}
 		return banner.toString(); 
 	}	
