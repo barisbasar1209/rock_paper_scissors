@@ -13,6 +13,9 @@ public class Main {
 				/*Board b = new Board(); 
 				System.out.println("starting a new game"); 
 				b.runGame(); */
-				System.out.println(Menu.generateBanner()); 	
+				String string = Util.RED+"#########################"+Util.RESET; 
+				Frame frame = new Frame(); 
+				frame.setSectionH(0,0,string); 
+				System.out.println(frame.toString()); 
 		}
 }

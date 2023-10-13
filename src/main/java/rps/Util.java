@@ -452,6 +452,8 @@ public class Util {
 	   	length += BLUE.length()   * countOccurrences(string, BLUE); 	
 	   	length += GREEN.length()  * countOccurrences(string, GREEN); 	
 	   	length += YELLOW.length() * countOccurrences(string, YELLOW); 	
+		System.out.println(string.length());
+		System.out.println(length);
 		return (string.length() - length); 
 	}
 	// not sure if necessary, check if can be deleted 
