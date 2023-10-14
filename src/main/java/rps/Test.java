@@ -5,12 +5,8 @@ public class Test {
 	private static volatile boolean shouldQuit = false; 
 
 	public static void main(String[] args) {
-		String[][][] arr = {{{"a"},{"b"},{"c"}},{{"1"},{"2"},{"3"}},{{"x"},{"y"},{"z"}}}; 
-		for (int i = 0; i<3; i++){
-			for(int j = 0; j<3; j++){
-				System.out.println(arr[i][j][0]); 	
-			}	
-		}
+		System.out.println(String.valueOf('#')); 
+
 	}
 	public static void threadTests(){
 			Thread printThread = new Thread(() -> {

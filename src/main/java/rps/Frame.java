@@ -68,6 +68,99 @@ public class Frame {
 			}
 		}
 	} 
+	public void setSectionH(int xStart, int yStart, String string) throws Exception{
+		int x = 0; int y = 0; 
+		String[] tokens = string.split("(?=(\u001B\\[91m|\u001B\\[92m|\u001B\\[94m|\u001B\\[93m|\u001B\\[0m))|(?<=(\u001B\\[91m|\u001B\\[34m|\u001B\\[94m|\u001B\\[93m|\u001B\\[0m))");	
+		System.out.println(tokens.length);	
+		for (String token : tokens) System.out.println(token.length()); 
+		for(String token : tokens){
+			if (token.equals(Util.RED) || token.equals(Util.BLUE) || token.equals(Util.YELLOW) || token.equals(Util.GREEN) || token.equals(Util.RESET)){
+				if (x>0) x--; 	
+				frame[y][x] = token; 
+			}	
+			else {
+				char[] chars = token.toCharArray(); 
+				for(char c : chars){
+					frame[y][x] = String.valueOf(c); 
+					x++;  	
+				}	
+			}
+		}
+		StringBuilder ret = new StringBuilder(); 
+		for (String[] line : frame){
+			for (String col : line){
+				if (col == null) {
+					ret.append(" "); 	
+				}	
+				else ret.append(col); 
+			}	
+		}
+		System.out.println("ret: " + ret.toString()); 
+	}
+	/*
+		 schreibe bis der string fertig geschrieben ist	
+		 	Sei j der index des nächsten esc in string und k = 0
+			solange k<j 
+		   		hänge string[k] and frame[y][x] an und gehe zu x+1 und i+1 , setze isColor zu false
+			angekommen bei j sei nun j der index des nächsten m
+			falls m-i == 4 dann ist es ein reset sonst eine farbe, setze isColor entsprechend
+			falls isColor dann schreibe substring von i bis m in frame[y][x] und gehe zu i+1
+			sonst schreibe substring von i bis m in frame[y][x-1] und setze isColor auf false
+	 */
+	public void setSectionHX(int xStart, int yStart, String string) throws Exception{
+		int x = xStart, y = yStart, i=0, j=0; 
+		int len = string.length(); 
+		int pureLen = Util.colorlessLength(string); 	
+		if (pureLen+x <= 185){
+			while(i<len){
+				j = string.indexOf('\u001B',i); 
+				System.out.println("j: " + j); 
+				System.out.println("i: " + i); 
+				System.out.println("x: " + x); 
+				Thread.sleep(1000); 
+				if (j-i>5) { // erst kommen noch normale character 
+					while(i<j){
+						System.out.println("writing series of characters");
+						System.out.println("x: " + x); 
+						Thread.sleep(1000); 
+						if (frame[y][x] == null) {
+							System.out.println("assigning"); 
+							frame[y][x] = Character.toString(string.charAt(i)); 
+						}
+						else {
+							System.out.println("appending");
+							frame[y][x] = frame[y][x] + Character.toString(string.charAt(i));
+						}
+						x++; i++;  	
+					}	
+					System.out.println("Wrote all characters. i: " + i + " x: " + x); 
+				}	
+				else { // aktuelle position ist esc
+					System.out.println("found esc"); 
+					j = string.indexOf('m', i); 		
+					System.out.println("j: " + j); 
+					System.out.println("i: " + i); 
+					Thread.sleep(1000); 
+					if (j-i == 4){ // color
+						System.out.println("found color"); 
+						frame[y][x] = string.substring(i,j); 	
+						i += 5; 
+					}
+					else if (j-i == 3){
+						System.out.println("found reset"); 
+						if (x==0) frame[y-1][184] = frame[y-1][184] + Util.RESET; 	
+						else frame[y][x-1] = frame[y][x-1] + Util.RESET; 
+						i += 4; 
+						x++; 	
+					}
+					else {
+						System.out.println("Massive error , should not happen!!!"); 
+						break; 
+					}
+				}
+			}
+		}
+	}
 	/*	solange noch nicht der ganze string gelesen wurde
 	   	falls x > 184 dann setze x = 0 und y++
 		falls anzahl an character + x <= 185 (dann passt der string noch in diese eine zeile ohne umbruch)
@@ -79,7 +172,7 @@ public class Frame {
 				andernfalls len-i < 4 dann solange string ende schreibe string.charAt(i) in frame[y][x] und gehe zu x+1, i+1
 			andernfalls schreibe string.charAt(i) in frame[y][x] und gehe zu x+1, i+1
 	 */
-	public void setSectionH(int xStart, int yStart, String string) throws Exception{
+	public void setSectionHH(int xStart, int yStart, String string) throws Exception{
 		checkIndicesInBound(xStart,yStart); 
 
 		int x = xStart, y = yStart, i = 0; 
