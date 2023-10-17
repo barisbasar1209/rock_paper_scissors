@@ -452,8 +452,8 @@ public class Util {
 	   	length += BLUE.length()   * countOccurrences(string, BLUE); 	
 	   	length += GREEN.length()  * countOccurrences(string, GREEN); 	
 	   	length += YELLOW.length() * countOccurrences(string, YELLOW); 	
-		System.out.println(string.length());
-		System.out.println(length);
+		//System.out.println(string.length());
+		//System.out.println(length);
 		return (string.length() - length); 
 	}
 	// not sure if necessary, check if can be deleted 
@@ -513,5 +513,13 @@ public class Util {
 	public static String[] splitWithDelimiter(String string, String delimiter){
 		String[] parts = string.split(String.format(WITH_DELIMITER, delimiter)); 
 		return parts; 
+	}
+	public static void printRaw(String string){
+		for (int i = 0; i<string.length(); i++){
+			if (string.charAt(i) == '\u001B') System.out.print("ESC"); 
+			else if (string.charAt(i) == '\n') System.out.print("NL"); 
+			else System.out.print(String.valueOf(string.charAt(i))); 	
+		}	
+		System.out.print("\n"); 
 	}
 }

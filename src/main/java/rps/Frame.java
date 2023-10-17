@@ -68,7 +68,7 @@ public class Frame {
 			}
 		}
 	} 
-	public void setSectionH(int xStart, int yStart, String string) throws Exception{
+	public void setSectionHX(int xStart, int yStart, String string) throws Exception{
 		int x = 0; int y = 0; 
 		String[] tokens = string.split("(?=(\u001B\\[91m|\u001B\\[92m|\u001B\\[94m|\u001B\\[93m|\u001B\\[0m))|(?<=(\u001B\\[91m|\u001B\\[34m|\u001B\\[94m|\u001B\\[93m|\u001B\\[0m))");	
 		System.out.println(tokens.length);	
@@ -107,51 +107,89 @@ public class Frame {
 			falls isColor dann schreibe substring von i bis m in frame[y][x] und gehe zu i+1
 			sonst schreibe substring von i bis m in frame[y][x-1] und setze isColor auf false
 	 */
-	public void setSectionHX(int xStart, int yStart, String string) throws Exception{
+	public void setSectionH(int xStart, int yStart, String string) throws Exception{
 		int x = xStart, y = yStart, i=0, j=0; 
 		int len = string.length(); 
 		int pureLen = Util.colorlessLength(string); 	
 		if (pureLen+x <= 185){
 			while(i<len){
 				j = string.indexOf('\u001B',i); 
-				System.out.println("j: " + j); 
+				/*if (j == -1) {
+					System.out.println("j == -1 while searching for ESC"); 
+					Thread.sleep(2500); 	
+				}*/
+				/*System.out.println("j: " + j); 
 				System.out.println("i: " + i); 
 				System.out.println("x: " + x); 
-				Thread.sleep(1000); 
-				if (j-i>5) { // erst kommen noch normale character 
+				Thread.sleep(1000);*/
+			   	if (j == -1){ // only colorless characters from here on
+					while(i<len){
+						frame[y][x] = "" + Character.toString(string.charAt(i)); 	
+						x++; i++; 
+					}	
+					break; 
+				}	
+				else if (j-i>=5) { // erst kommen noch normale character 
 					while(i<j){
-						System.out.println("writing series of characters");
-						System.out.println("x: " + x); 
-						Thread.sleep(1000); 
+						//System.out.println("writing series of characters");
+						//System.out.println("x: " + x); 
+						//Thread.sleep(1000); 
 						if (frame[y][x] == null) {
-							System.out.println("assigning"); 
+							//System.out.println("assigning"); 
 							frame[y][x] = Character.toString(string.charAt(i)); 
 						}
 						else {
-							System.out.println("appending");
+							//System.out.println("appending");
 							frame[y][x] = frame[y][x] + Character.toString(string.charAt(i));
 						}
 						x++; i++;  	
 					}	
-					System.out.println("Wrote all characters. i: " + i + " x: " + x); 
+					//System.out.println("Wrote all characters. i: " + i + " x: " + x); 
 				}	
 				else { // aktuelle position ist esc
-					System.out.println("found esc"); 
+					//System.out.println("found esc"); 
 					j = string.indexOf('m', i); 		
-					System.out.println("j: " + j); 
-					System.out.println("i: " + i); 
-					Thread.sleep(1000); 
+					/*if (j == -1) {
+						System.out.println("j == -1 while searching for m"); 
+						Thread.sleep(2500); 	
+					}*/
+					//System.out.println("j: " + j); 
+					//System.out.println("i: " + i); 
+					//Thread.sleep(5000); 
 					if (j-i == 4){ // color
-						System.out.println("found color"); 
-						frame[y][x] = string.substring(i,j); 	
+						//System.out.println("found color"); 
+						String sub = string.substring(i,j+1); 
+						//Util.printRaw(sub); 
+						//Thread.sleep(5000); 
+						/*switch(sub){ 
+							case Util.RED: 
+								System.out.println("color is RED"); 
+								frame[y][x] = "R"; 
+								break;
+							case Util.GREEN: 
+								System.out.println("color is GREEN"); 
+								frame[y][x] = "G"; 
+								break;
+							case Util.YELLOW: 
+								System.out.println("color is YELLOW"); 
+								frame[y][x] = "Y"; 
+								break;
+							case Util.BLUE: 
+								System.out.println("color is BLUE"); 
+								frame[y][x] = "B"; 
+								break;
+							default: 
+								System.out.println("none of the specified colors. Should not happen!"); 
+								break; 
+						}*/
+						frame[y][x] = sub; 
 						i += 5; 
 					}
 					else if (j-i == 3){
-						System.out.println("found reset"); 
-						if (x==0) frame[y-1][184] = frame[y-1][184] + Util.RESET; 	
+						//System.out.println("found reset"); 
+						if (x==0) frame[y-1][184] = frame[y-1][184] +  Util.RESET; 	
 						else frame[y][x-1] = frame[y][x-1] + Util.RESET; 
 						i += 4; 
-						x++; 	
 					}
 					else {
 						System.out.println("Massive error , should not happen!!!"); 
@@ -178,8 +216,8 @@ public class Frame {
 		int x = xStart, y = yStart, i = 0; 
 		int len = string.length();
 		int pureLength = Util.colorlessLength(string); 
-		System.out.println(pureLength); 
-		System.out.println(len); 
+		//System.out.println(pureLength); 
+		//System.out.println(len); 
 		if (pureLength+x <= 185){
 			System.out.println("fits in one line"); 
 			while(i < len){
@@ -187,19 +225,19 @@ public class Frame {
 					x = 0; 
 					y++; 	
 				}
-				System.out.println("i: " + i); 
-				Thread.sleep(1000); 
+				//System.out.println("i: " + i); 
+				//Thread.sleep(1000); 
 				char c = string.charAt(i); 
 				if (c == '\u001B'){
-					System.out.println("found esc"); 
-					Thread.sleep(1000); 
+					//System.out.println("found esc"); 
+					//Thread.sleep(1000); 
 					if(i+5<len){
-						System.out.println("not at the end of the string"); 
-						Thread.sleep(1000); 
+						//System.out.println("not at the end of the string"); 
+						//Thread.sleep(1000); 
 						String sub = string.substring(i,i+5); 
 						if (sub.equals(Util.RED) || sub.equals(Util.GREEN) || sub.equals(Util.YELLOW) || sub.equals(Util.BLUE)){
-							System.out.println("it is a color"); 
-							Thread.sleep(1000); 
+							//System.out.println("it is a color"); 
+							//Thread.sleep(1000); 
 							StringBuilder sb = new StringBuilder(); 
 							sb.append(sub); 
 							sb.append(Character.toString(string.charAt(i+1))); 
@@ -208,8 +246,8 @@ public class Frame {
 							i += 6;  
 						}  
 						else{
-							System.out.println("it is a reset"); 
-							Thread.sleep(1000); 
+							//System.out.println("it is a reset"); 
+							//Thread.sleep(1000); 
 							if (x>0) frame[y][x-1]   += ""+sub; 
 							else 	 frame[y-1][184] += ""+sub;
 						   	i += 4; 	
