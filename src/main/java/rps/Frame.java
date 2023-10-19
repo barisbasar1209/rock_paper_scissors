@@ -33,69 +33,8 @@ public class Frame {
 		for (int i = 0; i<len; i++){
 			if (setAs.charAt(i) == '\u001B'){
 				String unicode = setAs.substring(i,i+5); 
-				//if (	
-			}
-			//setPosition(x, y+i, setAs.charAt(i)); 	
-		}
-	}
-	// sets section horizontally in the y-th row, beginning from x, to the provided string. 
-	// Throws exception if x, y are out of bounds. Continous to write in next line if too long for current  
-	public void setSectionY (int x, int y, String string) throws Exception{
-		
-		checkIndicesInBound(x,y); 
-		System.out.println("length: " + string.length() +"\npure length: " + Util.colorlessLength(string));
-		String[] lines = string.split("\n"); 
-
-		for (int i = 0; i<lines.length; i++){
-			String[] columns = Util.splitWithDelimiter(lines[i], "[# ]");
-			int k = 0; 
-			for (String str : columns){
-				if (str.equals(" ")) System.out.println("empty"); 
-				else if (str.equals(Util.RED + " ")) System.out.println("red empty"); 
-				else if (str.equals(Util.GREEN + " ")) System.out.println("green empty"); 
-				else if (str.equals(Util.YELLOW + " ")) System.out.println("yellow empty"); 
-				else if (str.equals(" " + Util.RESET)) System.out.println("empty reset"); 
-				else if (str.equals("#")) System.out.println("white #"); 
-				else if (str.equals(Util.RED + "#")) System.out.println("red #"); 
-				else if (str.equals(Util.GREEN + "#")) System.out.println("green #"); 
-				else if (str.equals(Util.YELLOW + "#")) System.out.println("yellow #"); 
-				else if (str.equals("#" + Util.RESET)) System.out.println("# reset"); 
-				System.out.println(++k);
-				Thread.sleep(1000); 
-			} 
-			for(int j = 0; j<columns.length; j++){
-				frame[i][j] = columns[j];	
 			}
 		}
-	} 
-	public void setSectionHX(int xStart, int yStart, String string) throws Exception{
-		int x = 0; int y = 0; 
-		String[] tokens = string.split("(?=(\u001B\\[91m|\u001B\\[92m|\u001B\\[94m|\u001B\\[93m|\u001B\\[0m))|(?<=(\u001B\\[91m|\u001B\\[34m|\u001B\\[94m|\u001B\\[93m|\u001B\\[0m))");	
-		System.out.println(tokens.length);	
-		for (String token : tokens) System.out.println(token.length()); 
-		for(String token : tokens){
-			if (token.equals(Util.RED) || token.equals(Util.BLUE) || token.equals(Util.YELLOW) || token.equals(Util.GREEN) || token.equals(Util.RESET)){
-				if (x>0) x--; 	
-				frame[y][x] = token; 
-			}	
-			else {
-				char[] chars = token.toCharArray(); 
-				for(char c : chars){
-					frame[y][x] = String.valueOf(c); 
-					x++;  	
-				}	
-			}
-		}
-		StringBuilder ret = new StringBuilder(); 
-		for (String[] line : frame){
-			for (String col : line){
-				if (col == null) {
-					ret.append(" "); 	
-				}	
-				else ret.append(col); 
-			}	
-		}
-		System.out.println("ret: " + ret.toString()); 
 	}
 	/*
 		 schreibe bis der string fertig geschrieben ist	
@@ -108,6 +47,54 @@ public class Frame {
 			sonst schreibe substring von i bis m in frame[y][x-1] und setze isColor auf false
 	 */
 	public void setSectionH(int xStart, int yStart, String string) throws Exception{
+		checkIndicesInBound(xStart, yStart); 
+		int x = xStart, y = yStart, i=0, j=0; 
+		int len = string.length(); 
+		int pureLen = Util.colorlessLength(string); 	
+			while(i<len){
+				// breaking line if string is too long
+				if (x==185){
+					x=0; y++; 
+				}
+				j = string.indexOf('\u001B',i); 
+			   	if (j == -1){ // only colorless characters from here on
+					while(i<len){
+						frame[y][x] = "" + Character.toString(string.charAt(i)); 	
+						x++; i++; 
+					}	
+					break; 
+				}	
+				else if (j-i>=5) { // erst kommen noch normale character 
+					while(i<j){
+						if (x==185) {
+							x=0; y++; 	
+						}
+						if (frame[y][x] == null) frame[y][x] = Character.toString(string.charAt(i)); 
+						else 					 frame[y][x] = frame[y][x] + Character.toString(string.charAt(i));
+						x++; i++;  	
+					}	
+				}	
+				else { // aktuelle position ist esc
+					j = string.indexOf('m', i); 		
+					if (j-i == 4){ // color
+						String sub = string.substring(i,j+1); 
+						frame[y][x] = sub; 
+						i += 5; 
+					}
+					else if (j-i == 3){
+						if (x==0) frame[y-1][184] = frame[y-1][184] +  Util.RESET; 	
+						else 	  frame[y][x-1]   = frame[y][x-1]   + Util.RESET; 
+						i += 4; 
+					}
+					else {
+						System.out.println("Massive error , should not happen!!!"); 
+						break; 
+					}
+				}
+			}
+	}
+	// keeping this alternative version of the actual method setSectionH for debuggingpurposes 
+	public void setSectionHDebugging(int xStart, int yStart, String string) throws Exception{
 		int x = xStart, y = yStart, i=0, j=0; 
 		int len = string.length(); 
 		int pureLen = Util.colorlessLength(string); 	
