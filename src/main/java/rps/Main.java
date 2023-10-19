@@ -19,8 +19,9 @@ public class Main {
 				// 10 times string makes 250 raw characters plus 90 unicode characters equals pureLength = 340
 				String ssstring = string+string+string+string+string+string+string+string+string+string; 
 				Frame frame = new Frame(); 
-				frame.setSectionH(0,0,ssstring); 
-				frame.setSectionH(0,5,Util.dividerH); 
+				//frame.setSectionH(0,0,ssstring); 
+				//frame.setSectionH(0,5,Util.dividerH); 
+				frame.setSectionV(10,10,Util.dividerV); 
 				System.out.println("Section was set"); 
 				System.out.println(frame.toString()); 
 		}

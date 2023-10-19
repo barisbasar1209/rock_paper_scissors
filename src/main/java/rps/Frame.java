@@ -22,18 +22,15 @@ public class Frame {
 	}
 	// sets section vertically in the x-th column, beginning from y, to the provided string
 	// throws exception if x,y are out of bounds. Does not continue to write in next column if too long for current, throws exception as well
-	public void setSectionV (int x, int y, String setAs) throws Exception{
-		checkIndicesInBound(x,y); 
-
-		int len = setAs.length(); 
-		if (y + len > 37){
-			throw new Exception("Error: provided String is to long to be printed in the " + x + "-th column, beginning in the " + y + "-th row. Length is " + len); 
-		}
-		// fits completely in the x-th column 
-		for (int i = 0; i<len; i++){
-			if (setAs.charAt(i) == '\u001B'){
-				String unicode = setAs.substring(i,i+5); 
-			}
+	// only writes uncolorized string so far. In order to write colorized ones as well it would have to write color+char+reset in each lines x-th position
+	public void setSectionV (int xStart, int yStart, String string) throws Exception{
+		checkIndicesInBound(xStart,yStart); 
+		int x=xStart, y=yStart, i=0, len=string.length(); 
+		if (yStart + len > 185) throw new Exception("Vertical string is too long. Writing out of bounds for vertical string is not supported!"); 
+		
+		while(i<len){
+			frame[y][x] = Character.toString(string.charAt(i)); 
+			y++; i++; 
 		}
 	}
 	/*
