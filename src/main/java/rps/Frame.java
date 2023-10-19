@@ -51,47 +51,47 @@ public class Frame {
 		int x = xStart, y = yStart, i=0, j=0; 
 		int len = string.length(); 
 		int pureLen = Util.colorlessLength(string); 	
-			while(i<len){
-				// breaking line if string is too long
-				if (x==185){
-					x=0; y++; 
+		while(i<len){
+			// breaking line if string is too long
+			if (x==185){
+				x=0; y++; 
+			}
+			j = string.indexOf('\u001B',i); 
+		   	if (j == -1){ // only colorless characters from here on
+				while(i<len){
+					frame[y][x] = "" + Character.toString(string.charAt(i)); 	
+					x++; i++; 
+				}	
+				break; 
+			}	
+			else if (j-i>=5) { // erst kommen noch normale character 
+				while(i<j){
+					if (x==185) {
+						x=0; y++; 	
+					}
+					if (frame[y][x] == null) frame[y][x] = Character.toString(string.charAt(i)); 
+					else 					 frame[y][x] = frame[y][x] + Character.toString(string.charAt(i));
+					x++; i++;  	
+				}	
+			}	
+			else { // aktuelle position ist esc
+				j = string.indexOf('m', i); 		
+				if (j-i == 4){ // color
+					String sub = string.substring(i,j+1); 
+					frame[y][x] = sub; 
+					i += 5; 
 				}
-				j = string.indexOf('\u001B',i); 
-			   	if (j == -1){ // only colorless characters from here on
-					while(i<len){
-						frame[y][x] = "" + Character.toString(string.charAt(i)); 	
-						x++; i++; 
-					}	
+				else if (j-i == 3){
+					if (x==0) frame[y-1][184] = frame[y-1][184] +  Util.RESET; 	
+					else 	  frame[y][x-1]   = frame[y][x-1]   + Util.RESET; 
+					i += 4; 
+				}
+				else {
+					System.out.println("Massive error , should not happen!!!"); 
 					break; 
-				}	
-				else if (j-i>=5) { // erst kommen noch normale character 
-					while(i<j){
-						if (x==185) {
-							x=0; y++; 	
-						}
-						if (frame[y][x] == null) frame[y][x] = Character.toString(string.charAt(i)); 
-						else 					 frame[y][x] = frame[y][x] + Character.toString(string.charAt(i));
-						x++; i++;  	
-					}	
-				}	
-				else { // aktuelle position ist esc
-					j = string.indexOf('m', i); 		
-					if (j-i == 4){ // color
-						String sub = string.substring(i,j+1); 
-						frame[y][x] = sub; 
-						i += 5; 
-					}
-					else if (j-i == 3){
-						if (x==0) frame[y-1][184] = frame[y-1][184] +  Util.RESET; 	
-						else 	  frame[y][x-1]   = frame[y][x-1]   + Util.RESET; 
-						i += 4; 
-					}
-					else {
-						System.out.println("Massive error , should not happen!!!"); 
-						break; 
-					}
 				}
 			}
+		}
 	}
 	// keeping this alternative version of the actual method setSectionH for debuggingpurposes 
 	public void setSectionHDebugging(int xStart, int yStart, String string) throws Exception{
